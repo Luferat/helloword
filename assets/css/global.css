@@ -65,6 +65,8 @@ a:hover {
 /* Cabeçalho (header) */
 header {
     background-color: #000000;
+    display: flex;
+    flex-direction: column;
 }
 
 .header-logo-title {
@@ -97,7 +99,9 @@ header img {
 }
 
 .header-search form {
+    height: 100%;
     display: flex;
+    align-items: center;
 }
 
 .header-search form input {
@@ -118,6 +122,9 @@ nav a {
     padding: 1rem;
     text-align: center;
     color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 nav a:hover {
@@ -127,17 +134,50 @@ nav a:hover {
 
 nav a i {
     font-size: 2.2rem;
+    margin-bottom: .25rem;
 }
 
 /* Conteúdo principal */
-main {}
+main {
+    display: flex;
+    flex-direction: column;
+}
 
-main article {}
+main article,
+main aside {
+    padding: 0 1.5rem;
+}
 
-main aside {}
+main article {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+main aside {
+    background-color: rgba(226, 226, 226, 0.9);
+}
 
 /* Rodapé (footer) */
-footer {}
+footer {
+    background-color: #000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+footer>div {
+    flex-grow: 1;
+    text-align: center;
+}
+
+footer>a {
+    font-size: 2rem;
+    padding: .5rem;
+    color: #fff;
+}
+
+footer>div>a {
+    font-size: small;
+}
 
 /* Classes de uso geral */
 .red {}
@@ -150,4 +190,72 @@ textarea,
 button {
     font-family: inherit;
     font-size: inherit;
+}
+
+/*
+Responsividade
+Telas de 768px ou mais... 
+*/
+
+@media only screen and (min-width: 768px) {
+
+    /* Conteúdo principal */
+    main {
+        flex-direction: row;
+    }
+
+    main article {
+        flex-grow: 1;
+    }
+
+    main aside {
+        min-width: 14rem;
+        max-width: 14rem;
+    }
+
+    /* Cabeçalho */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+   
+    .header-search {}
+
+    .header-search form {
+        display: flex;
+
+    }
+
+    .header-search form input {
+        flex-grow: 1;
+    }
+
+}
+
+
+/*
+Responsividade
+Telas de 425px ou mais... 
+*/
+
+@media screen and (min-width: 425px) {
+
+    nav {
+        justify-content: flex-end;
+    }
+
+    nav a {
+        flex-direction: row;
+    }
+
+    nav a:first-child {
+        margin-right: auto;
+    }
+
+    nav a i {
+        font-size: 1.25rem;
+        margin-bottom: 0;
+        margin-right: .35rem;
+    }
+
 }
