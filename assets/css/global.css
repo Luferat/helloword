@@ -60,6 +60,9 @@ a:hover {
     /* min-width: 280px; */
     /* Centraliza blocos */
     margin: auto;
+    /* Sticky footer - Rodapé no finla da página */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Cabeçalho (header) */
@@ -141,6 +144,8 @@ nav a i {
 main {
     display: flex;
     flex-direction: column;
+    /* Sticky footer - Rodapé no finla da página */
+    flex-grow: 1;
 }
 
 main article,
