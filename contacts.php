@@ -1,10 +1,9 @@
 <?php
 
-// Conteúdo da tag <title>
-$title = "Lendo e Entendendo";
+$title = "Faça Contato";
 
-// Inclui o cabeçalho do documento
 require('_header.php');
+
 ?>
 
 <article></article>
