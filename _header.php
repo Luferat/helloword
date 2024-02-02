@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Insere o link das folhas de stilo do tema -->
     <link rel="stylesheet" href="assets/css/global.css">
-    <title>Hello Word - <?php echo $title ?></title>
+    <link rel="stylesheet" href="assets/css/<?php echo $page["css"] ?>">
+    <title>Hello Word - <?php echo $page["title"] ?></title>
 </head>
 
 <body>
@@ -18,13 +19,13 @@
             <div class="header-logo-title">
 
                 <a href="index.php" title="Página inicial">
-                    <img src="assets/img/logo02.png" alt="Logotipo de Hello Word">
+                    <img src="assets/img/<?php echo $site["logo"] ?>" alt="Logotipo de <?php echo $site["sitename"] ?>">
                 </a>
 
                 <!-- Título Exemplo 1 -->
                 <div class="header-title">
-                    <h1>Hello Word</h1>
-                    <small>Lendo e Entendendo</small>
+                    <h1><?php echo $site["title"] ?></h1>
+                    <small><?php echo $site["slogan"] ?></small>
                 </div>
 
             </div>

@@ -155,10 +155,12 @@ main aside {
 
 main article {
     background-color: rgba(255, 255, 255, .9);
+    flex-grow: 1;
 }
 
 main aside {
     background-color: rgba(226, 226, 226, 0.9);
+    min-height: 5rem;
 }
 
 /* Rodapé (footer) */
@@ -209,10 +211,6 @@ Telas de 768px ou mais...
         flex-direction: row;
     }
 
-    main article {
-        flex-grow: 1;
-    }
-
     main aside {
         min-width: 14rem;
         max-width: 14rem;
@@ -223,12 +221,13 @@ Telas de 768px ou mais...
         flex-direction: row;
         justify-content: space-between;
     }
-   
+
     .header-search {}
 
     .header-search form {
         display: flex;
-
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
     }
 
     .header-search form input {
@@ -236,7 +235,6 @@ Telas de 768px ou mais...
     }
 
 }
-
 
 /*
 Responsividade

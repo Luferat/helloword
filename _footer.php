@@ -19,6 +19,9 @@
 
 <!-- Importa o JavaScript do tema -->
 <script src="assets/js/global.js"></script>
+
+<!-- Importa o JavaScript específico desta página -->
+<script src="assets/js/<?php echo $page["js"] ?>"></script>
 </body>
 
 </html>
