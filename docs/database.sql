@@ -146,6 +146,118 @@ VALUES
         '
     );
 
+INSERT INTO article
+(
+    art_id, art_author, 
+    art_thumbnail,
+    art_title, 
+    art_summary, 
+    art_content
+)
+VALUES
+(
+    '5', '3', 
+    'https://picsum.photos/203',
+    'Segredos do Jardim Zen',
+    'Descubra os mistérios por trás da arte do jardim zen.',
+    '
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ab, excepturi, ullam veniam perspiciatis officiis nostrum libero rerum ipsum minima tempore quisquam accusamus officia magni ea accusantium cumque reiciendis molestias.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate placeat obcaecati harum doloribus perferendis mollitia autem, sapiente fuga itaque officiis molestias libero ea, delectus vero error? Amet deserunt eum vero.</p>
+        <figure>
+        <img src="https://picsum.photos/300/200" alt="Imagem qualquer">    
+        <figcaption>Imagem aleatória.</figcaption>                    
+        </figure>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nulla cum voluptate sed debitis minima consequuntur sint earum iste nam corporis aperiam dolorum temporibus itaque, corrupti velit architecto? Modi, quam!</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
+    '
+), (
+    '6', '4',
+    'https://picsum.photos/204',
+    'Cultivando Orquídeas em Casa',
+    'Dicas e truques para manter suas orquídeas saudáveis e florescentes.',
+    '
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ab, excepturi, ullam veniam perspiciatis officiis nostrum libero rerum ipsum minima tempore quisquam accusamus officia magni ea accusantium cumque reiciendis molestias.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate placeat obcaecati harum doloribus perferendis mollitia autem, sapiente fuga itaque officiis molestias libero ea, delectus vero error? Amet deserunt eum vero.</p>
+        <figure>
+        <img src="https://picsum.photos/300/200" alt="Imagem qualquer">    
+        <figcaption>Imagem aleatória.</figcaption>                    
+        </figure>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nulla cum voluptate sed debitis minima consequuntur sint earum iste nam corporis aperiam dolorum temporibus itaque, corrupti velit architecto? Modi, quam!</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
+    '
+), (
+    '7', '1',
+    'https://picsum.photos/205',
+    'Criação de Cactos no Deserto',
+    'Um guia para cultivar cactos em condições extremas de desertos.',
+    '
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ab, excepturi, ullam veniam perspiciatis officiis nostrum libero rerum ipsum minima tempore quisquam accusamus officia magni ea accusantium cumque reiciendis molestias.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate placeat obcaecati harum doloribus perferendis mollitia autem, sapiente fuga itaque officiis molestias libero ea, delectus vero error? Amet deserunt eum vero.</p>
+        <figure>
+        <img src="https://picsum.photos/300/200" alt="Imagem qualquer">    
+        <figcaption>Imagem aleatória.</figcaption>                    
+        </figure>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nulla cum voluptate sed debitis minima consequuntur sint earum iste nam corporis aperiam dolorum temporibus itaque, corrupti velit architecto? Modi, quam!</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
+    '
+);
+
+INSERT INTO article
+    (
+        art_id, art_author, 
+        art_thumbnail,
+        art_title, 
+        art_summary, 
+        art_content
+    )
+VALUES
+    (
+        '8', '3', 
+        'https://picsum.photos/206',
+        'O Segredo das Suculentas',
+        'Descubra como cuidar das suculentas de forma fácil e eficaz.',
+        '
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ab, excepturi, ullam veniam perspiciatis officiis nostrum libero rerum ipsum minima tempore quisquam accusamus officia magni ea accusantium cumque reiciendis molestias.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate placeat obcaecati harum doloribus perferendis mollitia autem, sapiente fuga itaque officiis molestias libero ea, delectus vero error? Amet deserunt eum vero.</p>
+            <figure>
+            <img src="https://picsum.photos/300/200" alt="Imagem qualquer">    
+            <figcaption>Imagem aleatória.</figcaption>                    
+            </figure>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nulla cum voluptate sed debitis minima consequuntur sint earum iste nam corporis aperiam dolorum temporibus itaque, corrupti velit architecto? Modi, quam!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
+        '
+    ), (
+        '9', '4',
+        'https://picsum.photos/207',
+        'Jardim Vertical em Pequenos Espaços',
+        'Saiba como criar um jardim vertical mesmo em ambientes compactos.',
+        '
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ab, excepturi, ullam veniam perspiciatis officiis nostrum libero rerum ipsum minima tempore quisquam accusamus officia magni ea accusantium cumque reiciendis molestias.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate placeat obcaecati harum doloribus perferendis mollitia autem, sapiente fuga itaque officiis molestias libero ea, delectus vero error? Amet deserunt eum vero.</p>
+            <figure>
+            <img src="https://picsum.photos/300/200" alt="Imagem qualquer">    
+            <figcaption>Imagem aleatória.</figcaption>                    
+            </figure>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nulla cum voluptate sed debitis minima consequuntur sint earum iste nam corporis aperiam dolorum temporibus itaque, corrupti velit architecto? Modi, quam!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
+        '
+    ), (
+        '10', '1',
+        'https://picsum.photos/208',
+        'Hortas Urbanas Sustentáveis',
+        'Aprenda a cultivar uma horta urbana sustentável em sua própria casa.',
+        '
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ab, excepturi, ullam veniam perspiciatis officiis nostrum libero rerum ipsum minima tempore quisquam accusamus officia magni ea accusantium cumque reiciendis molestias.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate placeat obcaecati harum doloribus perferendis mollitia autem, sapiente fuga itaque officiis molestias libero ea, delectus vero error? Amet deserunt eum vero.</p>
+            <figure>
+            <img src="https://picsum.photos/300/200" alt="Imagem qualquer">    
+            <figcaption>Imagem aleatória.</figcaption>                    
+            </figure>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nulla cum voluptate sed debitis minima consequuntur sint earum iste nam corporis aperiam dolorum temporibus itaque, corrupti velit architecto? Modi, quam!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
+        '
+    );
+
 -- Popular tabela 'comment'.
 INSERT INTO comment 
 (
