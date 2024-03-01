@@ -156,7 +156,7 @@ INSERT INTO article
 )
 VALUES
 (
-    '5', '3', 
+    '4', '3', 
     'https://picsum.photos/203',
     'Segredos do Jardim Zen',
     'Descubra os mistérios por trás da arte do jardim zen.',
@@ -171,7 +171,7 @@ VALUES
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
     '
 ), (
-    '6', '4',
+    '5', '4',
     'https://picsum.photos/204',
     'Cultivando Orquídeas em Casa',
     'Dicas e truques para manter suas orquídeas saudáveis e florescentes.',
@@ -186,7 +186,7 @@ VALUES
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
     '
 ), (
-    '7', '1',
+    '6', '1',
     'https://picsum.photos/205',
     'Criação de Cactos no Deserto',
     'Um guia para cultivar cactos em condições extremas de desertos.',
@@ -212,7 +212,7 @@ INSERT INTO article
     )
 VALUES
     (
-        '8', '3', 
+        '7', '3', 
         'https://picsum.photos/206',
         'O Segredo das Suculentas',
         'Descubra como cuidar das suculentas de forma fácil e eficaz.',
@@ -227,7 +227,7 @@ VALUES
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
         '
     ), (
-        '9', '4',
+        '8', '4',
         'https://picsum.photos/207',
         'Jardim Vertical em Pequenos Espaços',
         'Saiba como criar um jardim vertical mesmo em ambientes compactos.',
@@ -242,7 +242,7 @@ VALUES
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
         '
     ), (
-        '10', '1',
+        '9', '1',
         'https://picsum.photos/208',
         'Hortas Urbanas Sustentáveis',
         'Aprenda a cultivar uma horta urbana sustentável em sua própria casa.',

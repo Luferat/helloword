@@ -38,7 +38,7 @@ SELECT
     
     -- Obtém a idade do employee em anos
     -- Referências: https://www.w3schools.com/sql/func_mysql_timediff.asp
-    TIMESTAMPDIFF(YEAR, emp_birth, CURDATE()) as emp_age 
+    TIMESTAMPDIFF(YEAR, emp_birth, CURDATE()) AS emp_age 
 
 -- Tabela original
 FROM `article`
@@ -82,6 +82,14 @@ $article = <<<ART
 </div>
 
 ART;
+
+// Atualiza as visualizações do artigo
+$sql = <<<SQL
+UPDATE article 
+    SET art_views = art_views + 1 
+WHERE art_id = '{$id}';
+SQL;
+$conn->query($sql);
 
 // Inclui o cabeçalho do documento
 require('_header.php');

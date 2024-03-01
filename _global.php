@@ -18,6 +18,9 @@
  * Evita problemas de acentuação
  **/
 header("Content-type: text/html; charset=utf-8");
+setlocale(LC_ALL,'pt_BR.UTF8');
+mb_internal_encoding('UTF8'); 
+mb_regex_encoding('UTF8');
 
 /**
  * Configurações globais do site.
@@ -33,7 +36,10 @@ $site = [
     "mysql_hostname" => "localhost",        // Servidor do banco de dados MySQL
     "mysql_username" => "root",             // Nome do usuário do MySQL para o app
     "mysql_password" => "",                 // Senha do usuário do MySQL para o app
-    "mysql_database" => "helloword"         // Nome do banco de dados do MySQL para o app
+    "mysql_database" => "helloword",        // Nome do banco de dados do MySQL para o app
+
+    // Setup da visualização
+    "summary_length" => 40                  // Tamanho do corte do resumo 
 ];
 
 /**
