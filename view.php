@@ -85,14 +85,16 @@ ART;
 
 // Atualiza as visualizações do artigo
 $sql = <<<SQL
+
 UPDATE article 
     SET art_views = art_views + 1 
 WHERE art_id = '{$id}';
+
 SQL;
 $conn->query($sql);
 
 // Seleciona o tipo de colaborador
-switch ($art['emp_type']):
+switch ($art['emp_type']) {
     case 'admin':
         $emp_type = 'administrador(a)';
         break;
@@ -104,7 +106,7 @@ switch ($art['emp_type']):
         break;
     default:
         $emp_type = 'indefinido(a)';
-endswitch;
+};
 
 // Monta a view do autor para a <aside>
 $aside_author = <<<HTML
