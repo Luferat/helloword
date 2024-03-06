@@ -27,8 +27,8 @@ mb_regex_encoding('UTF8');
  * Altere conforme suas necessidades.
  **/ 
 $site = [
-    "sitename" => "Olá Mundo",              // Usado na tag <title>
-    "title" => "Olá Mundo",                 // Usado na tag <header>
+    "sitename" => "HelloWord",              // Usado na tag <title>
+    "title" => "HelloWord",                 // Usado na tag <header>
     "slogan" => "Lendo e entendendo",       // Usado na tag <header>
     "logo" => "logo02.png",                 // Usado na tag <header>
 

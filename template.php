@@ -18,4 +18,7 @@ require('_header.php');
 
 <aside></aside>
 
-<?php require('_footer.php') ?>
+<?php
+// Inclui o rodapé do documento
+require('_footer.php');
+?>

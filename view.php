@@ -67,9 +67,6 @@ if ($res->num_rows == 0) header('Location: 404.php');
 // Obtém o artigo e armazena em $art[]
 $art = $res->fetch_assoc();
 
-// Altera o título da página
-$page['title'] = $art['art_title'];
-
 // debug($art);
 
 // Gera a view para o usuário
@@ -142,6 +139,7 @@ WHERE
     -- status online
     AND art_status = 'on'
 -- ordenados de forma aleatória
+-- Referências: https://w3schools.com/sql/func_mysql_rand.asp
 ORDER BY RAND()
 -- limitado ao máximo de 3 registros
 LIMIT 3;
@@ -152,11 +150,11 @@ $res = $conn->query($sql);
 // Inicializa a view
 $aside_articles = '<div class="aside_article"><h4>+ Artigos</h4>' . "\n";
 
-// Loop
+// Loop da view
 while ($aart = $res->fetch_assoc()) :
 
     $aside_articles .= <<<HTML
-<div onclick="/view.php?id={$aart['art_id']}">
+<div onclick="location.href='/view.php?id={$aart['art_id']}'">
 <img src="{$aart['art_thumbnail']}" alt="{$aart['art_title']}">
 <h5>{$aart['art_title']}</h5>
 </div>
@@ -167,6 +165,9 @@ endwhile;
 
 // Fecha view
 $aside_articles .= '</div>';
+
+// O título da página contém o título do artigo
+$page['title'] = $art['art_title'];
 
 // Inclui o cabeçalho do documento
 require('_header.php');
@@ -181,4 +182,7 @@ require('_header.php');
     ?>
 </aside>
 
-<?php require('_footer.php') ?>
+<?php
+// Inclui o rodapé do documento
+require('_footer.php');
+?>

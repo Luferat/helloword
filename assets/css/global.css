@@ -186,11 +186,14 @@ footer>div>a {
     font-size: small;
 }
 
-
 /* Classes de uso geral */
-.red { color: red; }
+.red {
+    color: red;
+}
 
-.center { text-align: center; }
+.center {
+    text-align: center;
+}
 
 /* Elementos de formulários */
 input,
