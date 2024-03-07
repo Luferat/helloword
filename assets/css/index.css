@@ -21,6 +21,10 @@
     padding: 0 1rem;
 }
 
+.viewed h5, .viewed p {
+    margin: .5rem 0;
+}
+
 @media screen and (min-width: 768px) {
 
     .article {
