@@ -221,6 +221,14 @@ button {
     padding-bottom: 1rem;
 }
 
+.social-side a {
+    border-radius: .35rem;
+}
+
+.social-side a:hover {
+    background-color: #eee;
+}
+
 .social-side i {
     font-size: 2.5rem;
 }
@@ -263,10 +271,6 @@ Telas de 768px ou mais...
         justify-content: space-around;
         padding-bottom: 1rem;
         flex-wrap: wrap;
-    }
-
-    .social-side a:hover {
-        background-color: #eee;
     }
 
     .social-side i {

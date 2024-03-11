@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php // Insere o link das folhas de stilo do tema 
-    ?>
+    <?php // Insere o link das folhas de stilo do tema ?>
     <link rel="stylesheet" href="assets/css/global.css">
-    <?php // Link da folha de estilos da página atual gerado dinâmicamente 
-    ?>
-    <link rel="stylesheet" href="assets/css/<?php echo $page["css"] ?>">
-    <?php // Ícone de favoritos usado na guia e atalhos 
+    <?php
+    // Link da folha de estilos da página atual gerado dinâmicamente 
+    if (isset($page["css"])) {
+        echo '<link rel="stylesheet" href="assets/css/' . $page["css"] . '">' . "\n";
+    }
+    // Ícone de favoritos, também usado na guia e nos atalhos 
     ?>
     <link rel="shortcut icon" href="assets/img/logo02.png">
     <?php // Título da página, gerado dinâmicamente 
@@ -26,16 +27,13 @@
 
             <div class="header-logo-title">
 
-                <?php // Logotipo do site com link para a página inicial 
-                ?>
+                <?php // Logotipo do site com link para a página inicial ?>
                 <a href="index.php" title="Página inicial">
-                    <?php // O logotipo é carregado de forma dinâmica 
-                    ?>
+                    <?php // O logotipo é carregado de forma dinâmica ?>
                     <img src="assets/img/<?php echo $site["logo"] ?>" alt="Logotipo de <?php echo $site["sitename"] ?>">
                 </a>
 
-                <?php // Título e slogan da página que são "montados" dinâmicamente 
-                ?>
+                <?php // Título e slogan da página que são "montados" dinâmicamente ?>
                 <div class="header-title">
                     <h1><?php echo $site["title"] ?></h1>
                     <small><?php echo $site["slogan"] ?></small>
@@ -43,10 +41,9 @@
 
             </div>
 
-            <?php // Formulário de Buscas (ainda não funcional) 
-            ?>
+            <?php // Formulário de Buscas (ainda não funcional) ?>
             <div class="header-search">
-                <form action="" method="get">
+                <form action="search.php" method="get">
                     <input type="search" name="q" id="search" placeholder="Procurar...">
                     <button type="submit"><i class="fa-solid fa-magnifying-glass fa-fw"></i></button>
                 </form>

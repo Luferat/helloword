@@ -7,7 +7,7 @@ require("_global.php");
 $page = array(
     "title" => "Artigo Completo", // Título desta página
     "css" => "view.css",          // Folha de estilos desta página
-    "js" => "view.js",            // JavaScript desta página
+    "js" => "view.js"             // JavaScript desta página
 );
 
 // Obter o ID do artigo e armazenar na variável 'id'

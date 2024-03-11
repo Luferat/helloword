@@ -1,7 +1,7 @@
 /**
  * Configurações do Firebase
- * 
- * Lembre-se de substituir as configurações abaixo pelas que foram fornecidas pelo seu próprio Firebase.
+ * Lembre-se de substituir as configurações abaixo pelas que foram fornecidas
+ * pelo seu próprio Firebase.
  **/ 
 const firebaseConfig = {
     apiKey: 'AIzaSyB_Dk7S89N7wQk_o3cntUH5-7v2IWd_P8Q',
@@ -46,7 +46,7 @@ firebase.auth().onAuthStateChanged((user) => {
 function authLogged(user) {
 
     // URL do Link aponta para a página de perfil
-    authNav.setAttribute('href', 'profile.php');
+    authNav.setAttribute('href', `profile.php?ref=${location.pathname}`);
     authNav.setAttribute('title', `Perfil de ${user.displayName}.`);
 
     // Remove o ícone de login
@@ -65,7 +65,7 @@ function authLogged(user) {
 function authNotLogged() {
 
     // URL do Link aponta para a página de login
-    authNav.setAttribute('href', 'login.php');
+    authNav.setAttribute('href', `login.php?ref=${location.pathname}`);
     authNav.setAttribute('title', 'Login');
 
     // Remove a imagem

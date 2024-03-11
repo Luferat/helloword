@@ -17,7 +17,8 @@
     &nbsp;
     </div>
 
-    <?php // Importa as bibliotecas e configuração do Firebase ?>
+    <?php // Importa as bibliotecas e configuração do Firebase 
+    ?>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
 
@@ -25,9 +26,12 @@
     ?>
     <script src="assets/js/global.js"></script>
 
-    <?php // Importa o JavaScript específico desta página dinâmicamente 
+    <?php
+    // Importa o JavaScript específico desta página dinâmicamente 
+    if (isset($page["js"])) {
+        echo '<script src="assets/js/' . $page["js"] . '"></script>' . "\n";
+    }
     ?>
-    <script src="assets/js/<?php echo $page["js"] ?>"></script>
     </body>
 
     </html>

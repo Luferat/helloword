@@ -10,8 +10,13 @@ function login() {
     firebase.auth()
         .signInWithPopup(provider)
         .then((result) => {
-            // Se o login foi bem sucedido, redireciona para a home
-            location.href = 'index.php';
+            // Se o login foi bem sucedido...
+            // Obtém o parâmetro do link da página
+            var searchParams = new URLSearchParams(window.location.search);
+            // Obtém o valor do parâmetro "ref"
+            var refValue = searchParams.get('ref');
+            // Redireciona para a página de origem
+            location.href = refValue ? refValue : 'index.php';
         }).catch((error) => {
             // Se o login falhou, exibe aviso na view
             authError.innerHTML = 'Ocorreu um erro na tentativa de login. Por favor, tente mais tarde...';

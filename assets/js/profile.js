@@ -33,8 +33,13 @@ function goProfile() {
 // Referências: https://firebase.google.com/docs/auth/web/password-auth?hl=pt-br#next_steps
 function logout() {
     firebase.auth().signOut().then(() => {
-        // Se fez logout, exibe a página inicial
-        location.href = 'index.php';
+        // Se fez logout...
+        // Obtém o parâmetro do link da página
+        var searchParams = new URLSearchParams(window.location.search);
+        // Obtém o valor do parâmetro "ref"
+        var refValue = searchParams.get('ref');
+        // Redireciona para a página de origem
+        location.href = refValue ? refValue : 'index.php';
     }).catch((error) => {
         // Se o logout falhou, exibe aviso na view
         authError.innerHTML = 'Ocorreu um erro na tentativa de logout. Por favor, limpe os dados do navegador ou tente mais tarde...';
