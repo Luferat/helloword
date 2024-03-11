@@ -1,3 +1,7 @@
+/**
+ * login.js
+ **/
+
 // Seleciona elementos do HTML para interação
 const authError = document.getElementById('authError');
 const btnLogin = document.getElementById('btnLogin');

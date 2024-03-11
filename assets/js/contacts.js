@@ -1,3 +1,7 @@
+/**
+ * contacts.js
+ **/
+
 // Obtém elementos para interação
 const btnClose = document.getElementById('closeme');
 const frmError = document.getElementById('error');

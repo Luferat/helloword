@@ -1,8 +1,12 @@
 /**
+ * global.js
+ **/
+
+/**
  * Configurações do Firebase
  * Lembre-se de substituir as configurações abaixo pelas que foram fornecidas
  * pelo seu próprio Firebase.
- **/ 
+ **/
 const firebaseConfig = {
     apiKey: 'AIzaSyB_Dk7S89N7wQk_o3cntUH5-7v2IWd_P8Q',
     authDomain: 'hellowordblog.firebaseapp.com',

@@ -1,3 +1,7 @@
+/**
+ * profile.js
+ **/
+
 // Identifica elementos do HTML para interação
 const userName = document.getElementById('userName');
 const btnProfile = document.getElementById('btnProfile');
