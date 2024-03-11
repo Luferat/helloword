@@ -18,14 +18,14 @@
  * Evita problemas de acentuação
  **/
 header("Content-type: text/html; charset=utf-8");
-setlocale(LC_ALL,'pt_BR.UTF8');
-mb_internal_encoding('UTF8'); 
+setlocale(LC_ALL, 'pt_BR.UTF8');
+mb_internal_encoding('UTF8');
 mb_regex_encoding('UTF8');
 
 /**
  * Configurações globais do site.
  * Altere conforme suas necessidades.
- **/ 
+ **/
 $site = [
     "sitename" => "HelloWord",              // Usado na tag <title>
     "title" => "HelloWord",                 // Usado na tag <header>
@@ -39,7 +39,46 @@ $site = [
     "mysql_database" => "helloword",        // Nome do banco de dados do MySQL para o app
 
     // Setup da visualização
-    "summary_length" => 40                  // Tamanho do corte do resumo 
+    "summary_length" => 40,                  // Tamanho do corte do resumo 
+
+    /**
+     * Lista de redes sociais
+     *     "icon" foi obtido de https://fontawesome.com/icons/
+     *     "color" foi obtido de https://brandcolors.net/
+     **/
+    "social_list" => [
+        [
+            "name" => "GitHub.com",
+            "link" => "https://github.com/Luferat",
+            "icon" => "fa-brands fa-square-github fa-fw",
+            "color" => "#333"
+        ], [
+            "name" => "X / Twitter",
+            "link" => "https://twitter.com/Luferat",
+            "icon" => "fa-brands fa-square-x-twitter fa-fw",
+            "color" => "#14171a"
+        ], [
+            "name" => "Youtube",
+            "link" => "https://www.youtube.com/channel/UCkN6I-gfJlL5lUj9shkyxPQ",
+            "icon" => "fa-brands fa-square-youtube fa-fw",
+            "color" => "#ff0000"
+        ], [
+            "name" => "Facebook",
+            "link" => "https://facebook.com/Luferat",
+            "icon" => "fa-brands fa-square-facebook fa-fw",
+            "color" => "#1877f2"
+        ], [
+            "name" => "Instagram",
+            "link" => "https://instagram.com/Luferat",
+            "icon" => "fa-brands fa-square-instagram fa-fw",
+            "color" => "#405de6"
+        ], [
+            "name" => "LinkedIn",
+            "link" => "https://www.linkedin.com/in/luferat/",
+            "icon" => "fa-brands fa-linkedin fa-fw",
+            "color" => "#0a66c2"
+        ]
+    ]
 ];
 
 /**
@@ -58,7 +97,7 @@ $conn = new mysqli(
  * Trata erros de conexão com o banco de dados
  * ATENÇÃO! Isso não trata erros de script e não gera exceptions...
  *          Para isso, use PDO.
- **/ 
+ **/
 if ($conn->connect_error)
     die("Falha de conexão com o banco e dados: " . $conn->connect_error);
 
