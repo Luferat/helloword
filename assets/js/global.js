@@ -22,6 +22,9 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 // Inicializa o Authentication
 const auth = firebaseApp.auth();
 
+// Inicializa o Realtime Database
+const database = firebase.database();
+
 // Define o provedor de autenticação
 var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -37,6 +40,8 @@ const authNavLabel = document.getElementById('authNavLabel');
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // Se usuário está logado...
+        // Debug - Comente / apague para produção
+        console.log(user);
         // Executa a função que exibe a situação de logado na view
         authLogged(user);
     } else {
@@ -48,38 +53,30 @@ firebase.auth().onAuthStateChanged((user) => {
 
 // Exibe a situação de logado na view
 function authLogged(user) {
-
     // URL do Link aponta para a página de perfil
     authNav.setAttribute('href', `profile.php?ref=${location.pathname}`);
     authNav.setAttribute('title', `Perfil de ${user.displayName}.`);
-
     // Remove o ícone de login
     authNavIcon.style.display = 'none';
-
     // Exibe a imagem do usuário
     authNavImg.setAttribute('src', user.photoURL);
     authNavImg.setAttribute('alt', user.displayName);
     authNavImg.style.display = 'inline';
-
     // Altera o texto da label
     authNavLabel.innerHTML = 'Perfil';
 }
 
 // Exibe a situação de não logado na view
 function authNotLogged() {
-
     // URL do Link aponta para a página de login
     authNav.setAttribute('href', `login.php?ref=${location.pathname}`);
     authNav.setAttribute('title', 'Login');
-
     // Remove a imagem
     authNavImg.setAttribute('src', '');
     authNavImg.setAttribute('alt', '');
     authNavImg.style.display = 'none';
-
     // Exibe o ícone de login
     authNavIcon.style.display = 'inline';
-
     // Altera o texto da label
     authNavLabel.innerHTML = 'Login';
 }

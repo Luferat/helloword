@@ -10,12 +10,10 @@ const formEmail = document.getElementById('email');
 
 // Só executa as ações quando o elemento existe no documento
 if (document.body.contains(frmError)) {
-
     // Monitora cliques em 'btnClose'
     btnClose.addEventListener('click', closeMe);
-
     // Timer para fechar em 'seconds' segundos
-    // Se não quise usar, comente as linhas
+    // Se não quise usar, comente as linhas abaixo
     const seconds = 5;
     // setTimeout(closeMe, seconds * 1000);
 }

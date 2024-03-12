@@ -12,16 +12,12 @@ const btnLogout = document.getElementById('btnLogout');
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // Se usuário está logado...
-
         // Exibe o primeiro nome do usuário na página
         userName.innerHTML = user.displayName.split(' ')[0];
-
         // Monitora cliques no botão de perfil
         btnProfile.addEventListener('click', goProfile);
-
         // Monitora cliques no botão de logout
         btnLogout.addEventListener('click', logout);
-
     } else {
         // Se usuário NÃO está logado, redireciona ele para a página de login
         location.href = 'login.php';
