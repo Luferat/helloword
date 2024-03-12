@@ -27,6 +27,25 @@ Em nosso aplicativo vamos usar a autenticação por um provedor federado, mais e
 5. Logo abaixo, em "E-mail de suporte do projeto", clique na lista e selecione seu e-mail;
 6. Clique em **`[Salvar]`**.
 
+## Ativando o Realtime Database
+O Realtime Database é um banco de dados  NoSQL, em tempo real, que armazena e disponibiliza os dados em uma estrutura JSON. Vamos usá-lo para manter os dados do usuário atualizados mesmo que este não esteja logado.
+1.  No console do projeto recém criado, no menu da esquerda, clique em "Criação" → "Relatime Database";
+2. Clique em **`[Criar banco de dados]`**;
+3. No popup "Configurar banco de dados", em "Opções de banco de dados", apenas clique em **`[Próxima]`**;
+4. Ainda em "Configurar banco de dados", em "Regras de segurança", apenas clique em **`[Ativar]`**;
+5. Aguarde a criação do banco de dados...
+6. No console do "Realtime Database", clique na guia "Regras";
+7. Altere as regras com cuidado para que tenhamos:
+```JSON
+{
+  "rules": {
+    ".read": true,
+    ".write": "auth.uid !== null",
+  }
+}
+```
+8. Clique em **`[Publicar]`**.
+
 ## Criando um aplicativo
 Para que nosso aplicativo Web "converse" com as APIs do Firebase, precisamos implementar um aplicativo no serviço, seguindo os passos:
 1. No topo do menu da esquerda, clique em "Visão geral do projeto";
