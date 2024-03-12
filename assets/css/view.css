@@ -2,7 +2,8 @@
     margin-top: 1rem;
 }
 
-.aside-author img, .aside_article img {
+.aside-author img,
+.aside_article img {
     width: 100%;
     height: auto;
 }
@@ -29,7 +30,55 @@
 .aside_article div:hover {
     background-color: #eee;
 }
-.aside_article h5{
+
+.aside_article h5 {
     margin: 0;
+    padding: .5rem;
+}
+
+/* Por padrão as caixas de login e de comentários são ocultas */
+#notLogged,
+#isLogged {
+    display: none;
+}
+
+.block-divider {
+    border: none;
+    background-color: #ddd;
+    height: 1rem;
+    border-radius: .3rem;
+}
+
+.divider {
+    border: none;
+    border-top: 1px dotted grey;
+    border-bottom: 1px dotted grey;
+    height: 3px;
+}
+
+/* Comentários */
+
+.comment-block {
+    background-color: #eee;
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+}
+
+.comment-block img {
+    display: block;
+    width: 2rem;
+    border-radius: 50%;
+    margin-right: .5rem;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    font-size: small;
+    padding: .5rem;
+    border-bottom: 1px dotted grey;
+}
+
+.comment-content {
     padding: .5rem;
 }

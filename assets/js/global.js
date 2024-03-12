@@ -54,7 +54,7 @@ firebase.auth().onAuthStateChanged((user) => {
 // Exibe a situação de logado na view
 function authLogged(user) {
     // URL do Link aponta para a página de perfil
-    authNav.setAttribute('href', `profile.php?ref=${location.pathname}`);
+    authNav.setAttribute('href', `profile.php?ref=${location.href}`);
     authNav.setAttribute('title', `Perfil de ${user.displayName}.`);
     // Remove o ícone de login
     authNavIcon.style.display = 'none';
@@ -69,7 +69,7 @@ function authLogged(user) {
 // Exibe a situação de não logado na view
 function authNotLogged() {
     // URL do Link aponta para a página de login
-    authNav.setAttribute('href', `login.php?ref=${location.pathname}`);
+    authNav.setAttribute('href', `login.php?ref=${location.href}`);
     authNav.setAttribute('title', 'Login');
     // Remove a imagem
     authNavImg.setAttribute('src', '');

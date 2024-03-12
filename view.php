@@ -173,7 +173,12 @@ $page['title'] = $art['art_title'];
 require('_header.php');
 ?>
 
-<article><?php echo $article ?></article>
+<article>
+    <?php
+    echo $article; // Artigo completo    
+    ?>
+    <div id="comments"></div>
+</article>
 
 <aside>
     <?php

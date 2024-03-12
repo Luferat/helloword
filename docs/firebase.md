@@ -2,7 +2,7 @@
 # Configurando o Firebase para o aplicativo
 
 ## Sobre
-O Firebase é uma plataforma BaaS (Back-end as a Service) com suporte para várias linguagens e pertencente ao Google.
+O Firebase é uma plataforma BaaS (Back-end as a Service) com suporte para várias linguagens que pertencente ao Google.
 
 > *Referências: https://en.wikipedia.org/wiki/Firebase*
 

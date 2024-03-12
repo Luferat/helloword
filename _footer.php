@@ -36,3 +36,8 @@
     </body>
 
     </html>
+
+    <?php
+    // Encerra a sessão PHP
+    $conn->close();
+    ?>
