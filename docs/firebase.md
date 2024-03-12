@@ -36,7 +36,7 @@ O Realtime Database é um banco de dados  NoSQL, em tempo real, que armazena e d
 5. Aguarde a criação do banco de dados...
 6. No console do "Realtime Database", clique na guia "Regras";
 7. Altere as regras com cuidado para que tenhamos:
-```
+```JSON
 {
   "rules": {
     ".read": true,
