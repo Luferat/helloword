@@ -111,7 +111,7 @@ SQL;
         $stmt->execute();
 
         // Confirma para o remetente que formulário foi enviado 
-        header("Location: contactok.php?name={$form['name']}");
+        header("Location: contactsok.php?name={$form['name']}");
 
     // Se ocorreram erros no preenchimento do formulário
     else :
@@ -183,9 +183,10 @@ require('_header.php');
 </article>
 
 <aside>
-    <h3>+ Contatos</h3>
-    <p>Você também pode entrar em contato ou saber mais pelas nossas redes sociais:</p>
-    <?php require('_socialaside.php') ?>
+    <?php
+    // Lista de redes sociais
+    require('widgets/_socialaside.php');
+    ?>
 </aside>
 
 <?php

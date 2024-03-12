@@ -129,15 +129,16 @@ require('_header.php');
 ?>
 
 <article>
-
     <h2><?php echo $total ?> artigos mais recentes</h2>
     <?php echo $articles ?>
-
 </article>
 
 <aside>
-    <h3>Artigos + vistos</h3>
-    <?php echo $aside_viewed ?>
+    <?php
+    // Lista de artigos mais visualizados
+    $num_list = 3; // Total de artigos a serem mostrados
+    require('widgets/_mostviewed.php');
+    ?>
 </aside>
 
 <?php require('_footer.php') ?>
