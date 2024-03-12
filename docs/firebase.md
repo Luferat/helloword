@@ -4,7 +4,7 @@
 ## Sobre
 O Firebase é uma plataforma BaaS (Back-end as a Service) com suporte para várias linguagens e pertencente ao Google.
 
-*Referências: https://en.wikipedia.org/wiki/Firebase*
+> *Referências: https://en.wikipedia.org/wiki/Firebase*
 
 ## Entrando e criando um projeto
 
