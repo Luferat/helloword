@@ -1,5 +1,5 @@
     </main>
-
+    
     <footer>
 
         <a href="index.php">
@@ -17,12 +17,14 @@
     &nbsp;
     </div>
 
-    <?php // Importa o JavaScript do tema 
-    ?>
+    <?php // Importa as bibliotecas e configuração do Firebase ?>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    
+    <?php // Importa o JavaScript do tema ?>
     <script src="assets/js/global.js"></script>
 
-    <?php // Importa o JavaScript específico desta página dinâmicamente 
-    ?>
+    <?php // Importa o JavaScript específico desta página dinâmicamente ?>
     <script src="assets/js/<?php echo $page["js"] ?>"></script>
     </body>
 
