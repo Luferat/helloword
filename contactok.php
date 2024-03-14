@@ -26,7 +26,7 @@ require('_header.php');
         <p>Seu contato foi enviado com sucesso.</p>
         <p><em>Obrigado...</em></p>
         <p class="center">
-            <button onclick="location.href='contacts.php'" type="button">Enviar outro contato</button>
+            <button onclick="location.href='contacts.php'" type="button" id="btnAnother">Enviar outro contato</button>
         </p>
 
 </article>

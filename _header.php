@@ -74,7 +74,7 @@
             </a>
 
             <a id="userAccess" href="login.php" title="Logue-se">
-                <img id="userImg" src="" alt="">
+                <img id="userImg" src="assets/img/logo02.png" alt="Login de usuário" referrerpolicy="no-referrer">
                 <i id="userIcon" class="fa-solid fa-right-to-bracket fa-fw"></i>
                 <span id="userLabel"></span>
             </a>
