@@ -1,35 +1,35 @@
 .aside-author {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .aside-author img, .aside_article img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .aside-author h4 {
-    margin: .5rem 0;
+  margin: .5rem 0;
 }
 
 .aside-author ul {
-    font-size: small;
-    margin: 0;
-    padding: 0;
-    padding-left: 1rem;
+  font-size: small;
+  margin: 0;
+  padding: 0;
+  padding-left: 1rem;
 }
 
 .aside_article {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .aside_article div {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .aside_article div:hover {
-    background-color: #eee;
+  background-color: #eee;
 }
 .aside_article h5{
-    margin: 0;
-    padding: .5rem;
+  margin: 0;
+  padding: .5rem;
 }

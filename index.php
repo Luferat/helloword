@@ -7,7 +7,6 @@ require("_global.php");
 $page = array(
     "title" => $site['slogan'],      // Título desta página
     "css" => "index.css",            // Folha de estilos desta página
-    "js" => "index.js",              // JavaScript desta página
 );
 
 /**

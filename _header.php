@@ -1,3 +1,12 @@
+<?php
+// Testa se solicitou a inclusão dos arquivos ".css" e ".js"
+$_css = $_js = '';
+if (isset($page['css']))
+    $_css = '<link rel="stylesheet" href="assets/css/' . $page["css"] . '">' . "\n";
+
+if (isset($page['js']))
+    $_js = '<script src="assets/js/' . $page["js"] . '"></script>' . "\n";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,9 +16,10 @@
     <?php // Insere o link das folhas de stilo do tema 
     ?>
     <link rel="stylesheet" href="assets/css/global.css">
-    <?php // Link da folha de estilos da página atual gerado dinâmicamente 
+    <?php
+    // Link da folha de estilos da página atual gerado dinâmicamente 
+    echo $_css;
     ?>
-    <link rel="stylesheet" href="assets/css/<?php echo $page["css"] ?>">
     <?php // Ícone de favoritos usado na guia e atalhos 
     ?>
     <link rel="shortcut icon" href="assets/img/logo02.png">
