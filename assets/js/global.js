@@ -28,11 +28,11 @@ const userLabel = document.getElementById('userLabel');
 // Monitora se houve mudanças na autenticação do usuário
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        // Se alguém se logou, faça isso...
+        // Se alguém se logou, faça isso:
         // Chama a função que trata o usuário logado
         isLogged(user);
     } else {
-        // Se alguém deslogou, faça isso...
+        // Se alguém deslogou, faça isso:
         // Chama a função que trata o usuário NÃO logado
         notLogged();
     }

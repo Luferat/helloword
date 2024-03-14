@@ -1,112 +1,113 @@
 /* Formata mensagem de erro do back-end */
 #error {
-    background-color: rgb(255, 198, 198);
-    display: table;
-    margin: auto;
-    padding: 1rem;
-    border: 1px dotted red;
-    border-radius: .3rem;
-    color: rgb(87, 0, 0);
+  background-color: rgb(255, 198, 198);
+  border-radius: .3rem;
+  border: 1px dotted red;
+  color: rgb(87, 0, 0);
+  display: table;
+  margin: auto;
+  padding: 1rem;
 }
 
 #error h4,
 #error p:last-child {
-    margin: 0;
+  margin: 0;
 }
 
 #closeme {
-    float: right;
-    margin: -0.5rem -0.5rem 0 0;
-    font-size: 1.5rem;
-    cursor: pointer;
+  cursor: pointer;
+  float: right;
+  font-size: 1.5rem;
+  margin: -0.5rem -0.5rem 0 0;
 }
 
 #contact {
-    display: table;
-    margin: auto;
-    width: 100%;
-    max-width: 450px;
+  display: table;
+  margin: auto;
+  max-width: 450px;
+  width: 100%;
 }
 
 #contact label {
-    display: block;
-    padding: 0 0 .3rem .3rem;
+  display: block;
+  padding: 0 0 .3rem .3rem;
 }
 
 #contact input,
 #contact textarea,
 #contact button {
-    padding: .4rem;
-    font-size: 110%;
-    border: none;
-    border-radius: .4rem;
+  border-radius: .4rem;
+  border: none;
+  font-size: 110%;
+  padding: .4rem;
 }
 
 #contact input,
 #contact textarea {
-    width: 100%;
-    border: 1px solid red;
-    border-bottom: 3px solid red;
-    background-color: rgb(254, 220, 220);
+  background-color: rgb(254, 220, 220);
+  border-bottom: 3px solid red;
+  border: 1px solid red;
+  width: 100%;
 }
 
 #contact textarea {
-    height: 6rem;
-    resize: vertical;
+  height: 6rem;
+  resize: vertical;
 }
 
 #contact button {
-    border: 1px solid grey;
-    padding: .5rem 1rem;
-    font-weight: bold;
-    background-color: #ddd;
-    color: #6e6e6e;
-    cursor: not-allowed;
-    pointer-events: none;
+  background-color: #ddd;
+  border: 1px solid grey;
+  color: #6e6e6e;
+  cursor: not-allowed;
+  font-weight: bold;
+  padding: .5rem 1rem;
+  pointer-events: none;
 }
 
 /* Campos com valor válido */
 
 #contact input:valid,
 #contact textarea:valid {
-    border: 1px solid rgb(18, 118, 0);
-    border-bottom: 3px solid rgb(18, 118, 0);
-    background-color: rgb(232, 240, 254);
+  background-color: rgb(232, 240, 254);
+  border-bottom: 3px solid rgb(18, 118, 0);
+  border: 1px solid rgb(18, 118, 0);
 }
 
 #contact:valid button {
-    background-color: steelblue;
-    color: white;
-    cursor: pointer;
-    pointer-events: all;
+  background-color: steelblue;
+  color: white;
+  cursor: pointer;
+  pointer-events: all;
 }
 
 /* Lista de ícones de redes sociais */
+
 .social-side {
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1rem;
 }
 
 .social-side a {
-    border-radius: .35rem;
+  border-radius: .35rem;
 }
 
 .social-side a:hover {
-    background-color: #eee;
+  background-color: #eee;
 }
 
 .social-side i {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 #btnAnother {
-    background-color: steelblue;
-    color: white;
-    cursor: pointer;
-    border: 1px solid grey;
-    padding: .5rem 1rem;
-    border-radius: .4rem;
+  background-color: steelblue;
+  border-radius: .4rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: .5rem 1rem;
 }
 
 /*
@@ -115,17 +116,15 @@ Telas de 768px ou mais...
 */
 
 @media only screen and (min-width: 768px) {
-
-    /* Lista de ícones de redes sociais */
     .social-side {
-        justify-content: space-around;
-        padding-bottom: 1rem;
-        flex-wrap: wrap;
-    }
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+}
 
     .social-side i {
-        font-size: 4rem;
-        padding: .25rem;
-    }
+  font-size: 4rem;
+  padding: .25rem;
+}
 
 }

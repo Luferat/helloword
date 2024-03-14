@@ -1,36 +1,36 @@
 article img {
-    width: 100%;
-    max-width: 300px;
-    display: block;
-    margin: auto;
+  display: block;
+  margin: auto;
+  max-width: 300px;
+  width: 100%;
 }
 
 .article,
 .viewed>div {
-    background-color: #eee;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    border-radius: .3rem;
+  background-color: #eee;
+  border-radius: .3rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .article:hover,
 .viewed>div:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .article img,
 .viewed img {
-    width: 100%;
-    height: auto;
-    border-radius: .35rem .35rem 0 0;
+  border-radius: .35rem .35rem 0 0;
+  height: auto;
+  width: 100%;
 }
 
 .viewed>div>div {
-    padding: 0 1rem;
+  padding: 0 1rem;
 }
 
 .viewed p {
-    margin: .5rem 0;
+  margin: .5rem 0;
 }

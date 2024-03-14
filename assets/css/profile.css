@@ -1,0 +1,17 @@
+#btnProfile {
+  background-color: steelblue;
+  border-radius: .35rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: .5rem 1rem;
+}
+
+#btnLogout {
+  background-color: orangered;
+  border-radius: .35rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: .5rem 1rem;
+}

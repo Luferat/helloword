@@ -5,7 +5,7 @@ const loginError = document.getElementById('loginError');
 // Monitora se houve mudanças na autenticação do usuário
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        // Se alguém se logou, faça isso...
+        // Se alguém se logou, faça isso:
         // Obtém o parâmetro do link da página
         var searchParams = new URLSearchParams(window.location.search);
         // Obtém o valor do parâmetro "ref"
@@ -13,7 +13,7 @@ firebase.auth().onAuthStateChanged((user) => {
         // Redireciona para a página de origem
         location.href = refValue ? refValue : 'index.php';
     } else {
-        // Se alguém deslogou, faça isso...
+        // Se alguém deslogou, faça isso:
         // Monitorar cliques no botão de login
         btnLogin.addEventListener('click', login);
     }
