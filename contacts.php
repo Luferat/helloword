@@ -109,7 +109,7 @@ SQL;
         $stmt->execute();
 
         // Confirma para o remetente que formulário foi enviado 
-        header("Location: contactok.php?name={$form['name']}");
+        header("Location: contactsok.php?name={$form['name']}");
 
     // Se ocorreram erros no preenchimento do formulário
     else :

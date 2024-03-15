@@ -209,6 +209,12 @@ button {
     font-size: inherit;
 }
 
+button {
+    border: none;
+    padding: .35rem 1rem;
+    border-radius: .3rem;
+}
+
 /*
 Responsividade
 Telas de 768px ou mais... 
@@ -231,8 +237,6 @@ Telas de 768px ou mais...
         flex-direction: row;
         justify-content: space-between;
     }
-
-    .header-search {}
 
     .header-search form {
         display: flex;
@@ -284,4 +288,12 @@ Telas de 425px ou mais...
 #userImg,
 #userIcon {
     display: none;
+}
+
+.validButton {
+    background-color: steelblue;
+}
+
+.invalidButton {
+    background-color: grey;
 }

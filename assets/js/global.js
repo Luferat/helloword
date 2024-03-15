@@ -37,6 +37,11 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 
+// Evita o reenvio dos formulários ao atualizar a página
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
+
 // Função que trata o usuário logado
 function isLogged(user) {
     // Altera href do link
@@ -79,4 +84,11 @@ function convertTimestampToDateFormat(timestamp) {
     const min = date.getMinutes().toString().padStart(2, '0');
 
     return `${day}/${month}/${year} às ${hour}:${min}`;
+}
+
+// Função que remove espaços antes e depois, códigos JavaScript e tags HTML da string argumento
+function stripTags(htmlText) {
+    let div = document.createElement('div');
+    div.innerHTML = htmlText.trim().replace(/<script>.*<\/script>/, '');
+    return div.textContent;
 }
