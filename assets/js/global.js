@@ -1,4 +1,3 @@
-
 /**
  * Chaves de configuração do Firebase
  * Copie aqui as suas prórias chaves do Firebase.

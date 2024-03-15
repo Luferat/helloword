@@ -5,8 +5,9 @@ require("_global.php");
 
 // Configurações desta página
 $page = array(
-    "title" => "Artigo Completo", // Título desta página
-    "css" => "view.css"           // Folha de estilos desta página
+    "title" => "Artigo Completo",
+    "css" => "view.css",
+    "js" => "view.js"
 );
 
 // Obter o ID do artigo e armazenar na variável 'id'
@@ -172,7 +173,13 @@ $page['title'] = $art['art_title'];
 require('_header.php');
 ?>
 
-<article><?php echo $article ?></article>
+<article>
+    <?php echo $article ?>
+    <?php
+    // Inclui o processamento dos comentários
+    require('widgets/_comments.php');
+    ?>
+</article>
 
 <aside>
     <?php
