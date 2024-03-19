@@ -92,7 +92,8 @@ INSERT INTO employee (
 -- Popular tabela 'article'.
 INSERT INTO article
     (
-        art_id, art_author, 
+        art_id, 
+        art_author, 
         art_thumbnail,
         art_title, 
         art_summary, 
@@ -100,7 +101,8 @@ INSERT INTO article
     )
 VALUES
     (
-        '1', '2', 
+        '1', 
+        '2', 
         'https://picsum.photos/200',
         'Figueira donde nascem figos',
         'Conheça e saiba cuida de figueira e comer frutos deliciosos.',
@@ -115,7 +117,8 @@ VALUES
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
         '
     ), (
-        '2', '4',
+        '2', 
+        '4',
         'https://picsum.photos/201',
         'Roseiras que espetam os dedos',
         'Como lidar com a colheita das rosas sem sangrar.',
@@ -130,7 +133,8 @@ VALUES
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
         '
     ), (
-        '3', '2',
+        '3', 
+        '2',
         'https://picsum.photos/202',
         'Plantinhas na varanda',
         'Cuide bem das plantinhas da varanda neste verão.',
@@ -148,7 +152,8 @@ VALUES
 
 INSERT INTO article
 (
-    art_id, art_author, 
+    art_id, 
+    art_author, 
     art_thumbnail,
     art_title, 
     art_summary, 
@@ -156,7 +161,8 @@ INSERT INTO article
 )
 VALUES
 (
-    '4', '3', 
+    '4', 
+    '3', 
     'https://picsum.photos/203',
     'Segredos do Jardim Zen',
     'Descubra os mistérios por trás da arte do jardim zen.',
@@ -171,7 +177,8 @@ VALUES
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
     '
 ), (
-    '5', '4',
+    '5', 
+    '4',
     'https://picsum.photos/204',
     'Cultivando Orquídeas em Casa',
     'Dicas e truques para manter suas orquídeas saudáveis e florescentes.',
@@ -186,7 +193,8 @@ VALUES
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
     '
 ), (
-    '6', '1',
+    '6', 
+    '1',
     'https://picsum.photos/205',
     'Criação de Cactos no Deserto',
     'Um guia para cultivar cactos em condições extremas de desertos.',
@@ -204,7 +212,8 @@ VALUES
 
 INSERT INTO article
     (
-        art_id, art_author, 
+        art_id, 
+        art_author, 
         art_thumbnail,
         art_title, 
         art_summary, 
@@ -212,7 +221,8 @@ INSERT INTO article
     )
 VALUES
     (
-        '7', '3', 
+        '7', 
+        '3', 
         'https://picsum.photos/206',
         'O Segredo das Suculentas',
         'Descubra como cuidar das suculentas de forma fácil e eficaz.',
@@ -227,7 +237,8 @@ VALUES
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
         '
     ), (
-        '8', '4',
+        '8', 
+        '4',
         'https://picsum.photos/207',
         'Jardim Vertical em Pequenos Espaços',
         'Saiba como criar um jardim vertical mesmo em ambientes compactos.',
@@ -242,7 +253,8 @@ VALUES
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum quia distinctio iusto exercitationem qui accusantium ex ullam, excepturi illo quisquam beatae, nisi ad earum reprehenderit, maiores asperiores fuga nulla accusamus.</p>
         '
     ), (
-        '9', '1',
+        '9', 
+        '1',
         'https://picsum.photos/208',
         'Hortas Urbanas Sustentáveis',
         'Aprenda a cultivar uma horta urbana sustentável em sua própria casa.',

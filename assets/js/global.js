@@ -80,3 +80,10 @@ function convertTimestampToDateFormat(timestamp) {
 
     return `${day}/${month}/${year} às ${hour}:${min}`;
 }
+
+// Função que remove espaços antes e depois, códigos JavaScript e tags HTML da string argumento
+function stripTags(htmlText) {
+    let div = document.createElement('div');
+    div.innerHTML = htmlText.trim().replace(/<script>.*<\/script>/, '');
+    return div.textContent;
+}

@@ -1,59 +1,5 @@
 <?php
 
-// Recebe o novo comentário
-$new_comment = isset($_POST['comment']) ? trim(htmlentities($_POST['comment'])) : '';
-
-// Chegou um novo comentário
-if ($new_comment != '') :
-
-    // Recupera e sanitiza dados do comentarista
-    $new_socialid = trim(htmlentities($_POST['social_id']));
-    $new_social_name = trim(htmlentities($_POST['social_name']));
-    $new_social_photo = trim(filter_input(INPUT_POST, "social_photo", FILTER_SANITIZE_URL));
-    $new_social_email = trim(filter_input(INPUT_POST, "social_email", FILTER_SANITIZE_EMAIL));
-
-    // Se os campos necessários foram preenchidos:
-    if (
-        $new_comment != ''
-        && $new_social_name != ''
-        && $new_social_photo != ''
-    ) :
-
-        // Query de insersão
-        $sql = <<<SQL
-
-INSERT INTO comment (
-    cmt_article,
-    cmt_social_id,
-    cmt_social_name,
-    cmt_social_photo,
-    cmt_social_email,
-    cmt_content
-) VALUES (?, ?, ?, ?, ?, ?);
-
-SQL;
-
-        // Prepara o comando SQL para o banco de dados
-        $stmt = $conn->prepare($sql);
-
-        // Envia os dados para o banco
-        $stmt->bind_param(
-            "ssssss",
-            $id,
-            $new_socialid,
-            $new_social_name,
-            $new_social_photo,
-            $new_social_email,
-            $new_comment
-        );
-
-        // Executa o prepared
-        $stmt->execute();
-
-    endif;
-
-endif;
-
 // Query que recebe todos os comentários do artigo atual
 $sql = <<<SQL
 

@@ -5,10 +5,21 @@ const commentBox = document.getElementById('commentBox');
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // Se alguém se logou, faça isso:
-
-
+        showCommentField(user);
     } else {
         // Se alguém deslogou, faça isso:
-        commentBox.innerHTML = `<p><a href="login.php?ref=${location.href}#comment">Logue-se</a> para comentar.</p>`;
+        showLoginLink();
     }
 });
+
+function showCommentField(user) {
+    console.log(user);
+}
+
+function showLoginLink() {
+    commentBox.innerHTML = `
+    <p><a href="login.php?ref=${location.href}%23comment">
+        Logue-se</a> para comentar.
+    </p>
+    `;
+}
