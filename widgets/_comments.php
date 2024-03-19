@@ -75,9 +75,9 @@ $res = $conn->query($sql);
 $cmt_total = $res->num_rows;
 
 // Subtítulo conforme o número de comentários.
-if ($cmt_total == 0) $view_total =  '<h5>Nenhum comentário</h5>';
-elseif ($cmt_total == 1) $view_total =  '<h5>1 comentário</h5>';
-else $view_total =  "<h5>{$cmt_total} comentários</h5>";
+if ($cmt_total == 0) $view_total = '<h5>Nenhum comentário</h5>';
+elseif ($cmt_total == 1) $view_total = '<h5>1 comentário</h5>';
+else $view_total = "<h5>{$cmt_total} comentários</h5>";
 
 // Se existem comentários:
 if ($cmt_total > 0) :

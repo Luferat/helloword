@@ -154,6 +154,7 @@ $aside_articles = '<div class="aside_article"><h4>+ Artigos</h4>' . "\n";
 while ($aart = $res->fetch_assoc()) :
 
     $aside_articles .= <<<HTML
+
 <div onclick="location.href='/view.php?id={$aart['art_id']}'">
 <img src="{$aart['art_thumbnail']}" alt="{$aart['art_title']}">
 <h5>{$aart['art_title']}</h5>
@@ -174,8 +175,9 @@ require('_header.php');
 ?>
 
 <article>
-    <?php echo $article ?>
     <?php
+    echo $article;
+
     // Inclui o processamento dos comentários
     require('widgets/_comments.php');
     ?>
