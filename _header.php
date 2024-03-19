@@ -1,35 +1,51 @@
 <?php
-// Testa se solicitou a inclusão dos arquivos ".css" e ".js"
+
+/**
+ * Testa se solicitou a inclusão dos arquivos ".css" e ".js" desta página
+ * Isso torna desnecessário criar arquivos .css e/ou .js vazios para as páginas que não precisam dele(s)
+ **/
+
+// Inicializa sem tags para CSS e JS.
 $_css = $_js = '';
+
+// Se existe referência a um arquivo .css em $page[]:
 if (isset($page['css']))
+    // Cria a tag que carrega a folha de estilos referenciada
     $_css = '<link rel="stylesheet" href="assets/css/' . $page["css"] . '">' . "\n";
 
+// Se existe referência a um arquivo .js em $page[]:
 if (isset($page['js']))
+    // Cria a tag que carrega o JavaScript referenciado
     $_js = '<script src="assets/js/' . $page["js"] . '"></script>' . "\n";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
+    <?php // Define a localização da raiz do site em relação ao servidor Web e ao domínio
+    ?>
+    <base href="./">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php // Insere o link das folhas de stilo do tema 
+    <?php // Carrega folhas de stilo do tema 
     ?>
     <link rel="stylesheet" href="assets/css/global.css">
     <?php
-    // Link da folha de estilos da página atual gerado dinâmicamente 
+    // Tag de carga da folha de estilos da página atual, gerado dinâmicamente 
     echo $_css;
     ?>
     <?php // Ícone de favoritos usado na guia e atalhos 
     ?>
     <link rel="shortcut icon" href="assets/img/logo02.png">
-    <?php // Título da página, gerado dinâmicamente 
+    <?php // Título da página, inicializado em $page[] ou gerado dinâmicamente 
     ?>
-    <title>Hello Word - <?php echo $page["title"] ?></title>
+    <title><?php echo $site['sitename'] . ' .:. ' . $page["title"] ?></title>
 </head>
 
 <body>
 
+    <?php // "#wrap" é necessário para limitar e centralizar conteúdo da página e para o "sticky footer" 
+    ?>
     <div id="wrap">
 
         <header>
@@ -53,12 +69,12 @@ if (isset($page['js']))
 
             </div>
 
-            <?php // Formulário de Buscas (ainda não funcional) 
+            <?php // Formulário de Buscas 
             ?>
             <div class="header-search">
-                <form action="" method="get">
+                <form action="search.php" method="get">
                     <input type="search" name="q" id="search" placeholder="Procurar...">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass fa-fw"></i></button>
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass fa-fw fa-flip-horizontal"></i></button>
                 </form>
             </div>
 
@@ -83,6 +99,8 @@ if (isset($page['js']))
                 <span>Sobre</span>
             </a>
 
+            <?php // Botão de interação do perfil do usuário, modificado pelo JavaScript 
+            ?>
             <a id="userAccess" href="login.php" title="Logue-se">
                 <img id="userImg" src="assets/img/logo02.png" alt="Login de usuário" referrerpolicy="no-referrer">
                 <i id="userIcon" class="fa-solid fa-right-to-bracket fa-fw"></i>

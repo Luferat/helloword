@@ -96,6 +96,8 @@ header img {
     letter-spacing: .11rem;
 }
 
+/* Formulário de pesquisa no cabeçalho */
+
 .header-search {
     background-color: orange;
     padding: 1rem;
@@ -107,8 +109,21 @@ header img {
     align-items: center;
 }
 
+.header-search form input,
+.header-search form button {
+    padding: .5rem;
+    border: none;
+    background-color: white;
+}
+
 .header-search form input {
     flex-grow: 1;
+    border-radius: .35rem 0 0 .35rem;
+}
+
+.header-search form button {
+    border-radius: 0 .35rem .35rem 0;
+    color: grey;
 }
 
 /* Menu principal (nav) */
@@ -209,6 +224,12 @@ button {
     font-size: inherit;
 }
 
+button {
+    border: none;
+    padding: .35rem 1rem;
+    border-radius: .3rem;
+}
+
 /*
 Responsividade
 Telas de 768px ou mais... 
@@ -232,16 +253,9 @@ Telas de 768px ou mais...
         justify-content: space-between;
     }
 
-    .header-search {}
-
     .header-search form {
-        display: flex;
         margin-left: 1.5rem;
         margin-right: 1.5rem;
-    }
-
-    .header-search form input {
-        flex-grow: 1;
     }
 
 }
@@ -284,4 +298,12 @@ Telas de 425px ou mais...
 #userImg,
 #userIcon {
     display: none;
+}
+
+.validButton {
+    background-color: steelblue;
+}
+
+.invalidButton {
+    background-color: grey;
 }

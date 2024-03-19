@@ -1,5 +1,8 @@
 <?php
 
+// Total a ser exibido, por default '3'
+$num_list = (isset($num_list)) ? $num_list : 3;
+
 // Obtém uma lista de artigos mais visualizados no site
 $sql = <<<SQL
 

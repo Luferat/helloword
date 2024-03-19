@@ -2,7 +2,8 @@
   margin-top: 1rem;
 }
 
-.aside-author img, .aside_article img {
+.aside-author img,
+.aside_article img {
   width: 100%;
   height: auto;
 }
@@ -24,12 +25,19 @@
 
 .aside_article div {
   margin-bottom: 1rem;
+  background-color: white;
+  border-radius: .35rem;
 }
 
 .aside_article div:hover {
   background-color: #eee;
 }
-.aside_article h5{
+
+.aside_article h5 {
   margin: 0;
   padding: .5rem;
+}
+
+.aside_article img {
+  border-radius: .35rem .35rem 0 0;
 }

@@ -56,9 +56,6 @@
 }
 
 #contact button {
-  border: 1px solid grey;
-  padding: .5rem 1rem;
-  font-weight: bold;
   background-color: #ddd;
   color: #6e6e6e;
   cursor: not-allowed;
@@ -82,6 +79,7 @@
 }
 
 /* Lista de ícones de redes sociais */
+
 .social-side {
   display: flex;
   justify-content: space-around;
@@ -104,9 +102,6 @@
   background-color: steelblue;
   color: white;
   cursor: pointer;
-  border: 1px solid grey;
-  padding: .5rem 1rem;
-  border-radius: .4rem;
 }
 
 /*
@@ -118,14 +113,14 @@ Telas de 768px ou mais...
 
   /* Lista de ícones de redes sociais */
   .social-side {
-      justify-content: space-around;
-      padding-bottom: 1rem;
-      flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+    flex-wrap: wrap;
   }
 
   .social-side i {
-      font-size: 4rem;
-      padding: .25rem;
+    font-size: 4rem;
+    padding: .25rem;
   }
 
 }
