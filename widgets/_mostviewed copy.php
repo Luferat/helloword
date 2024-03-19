@@ -7,7 +7,7 @@ $num_list = (isset($num_list)) ? $num_list : 3;
 $sql = <<<SQL
 
 SELECT 
-    art_id, art_title, art_summary
+    art_id, art_thumbnail, art_title, art_summary
 FROM article
 ORDER BY art_views
 LIMIT {$num_list};
@@ -42,8 +42,11 @@ while ($mv = $res->fetch_assoc()) :
     $aside_viewed .= <<<HTML
 
 <div onclick="location.href = 'view.php?id={$mv['art_id']}'">
+    <img src="{$mv['art_thumbnail']}" alt="{$mv['art_title']}">
+    <div>
     <h5>{$mv['art_title']}</h5>
-    <p><small title="{$mv['art_summary']}">{$mv['art_summary']}</small></p>
+    <p><small title="{$mv['art_summary']}">{$art_summary}</small></p>
+    </div>
 </div>
 
 HTML;

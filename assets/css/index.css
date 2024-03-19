@@ -1,5 +1,4 @@
-.article,
-.viewed>div {
+.article {
     background-color: #eee;
     display: flex;
     flex-direction: column;
@@ -8,25 +7,21 @@
     border-radius: .3rem;
 }
 
-.article:hover,
-.viewed>div:hover {
+.article:hover {
     background-color: #ddd;
 }
 
-.article img,
-.viewed img {
+.article img {
     width: 100%;
     height: auto;
     border-radius: .35rem .35rem 0 0;
 }
 
-.article div,
-.viewed>div>div {
+.article div {
     padding: 0 1rem;
 }
 
-.viewed h5,
-.viewed p {
+.viewed h5 {
     margin: .5rem 0;
 }
 
@@ -44,3 +39,22 @@
 
 }
 
+.viewed div {
+    padding: .5rem;
+    background-color: white;
+    margin-bottom: 1rem;
+    border-radius: .35rem;
+    cursor: pointer;
+}
+
+.viewed div:hover {
+    background-color: #eee;
+} 
+
+.viewed h5 {
+    margin: 0;
+}
+
+.viewed p {
+    margin: .25rem 0 0 0;
+}

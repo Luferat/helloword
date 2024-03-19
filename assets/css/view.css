@@ -19,23 +19,6 @@
   padding-left: 1rem;
 }
 
-.aside_article {
-  cursor: pointer;
-}
-
-.aside_article div {
-  margin-bottom: 1rem;
-}
-
-.aside_article div:hover {
-  background-color: #eee;
-}
-
-.aside_article h5 {
-  margin: 0;
-  padding: .5rem;
-}
-
 .comment_section h2 {
   margin: 2rem 0 0 0;
   border-top: 1rem solid #ddd;
@@ -68,6 +51,26 @@
 
 .cmt_body {
   padding: .5rem;
+}
+
+.aside_article div {
+ background-color: white; 
+ padding: .5rem;
+ border-radius: .35rem;
+ cursor: pointer;
+ margin-bottom: 1rem;
+}
+
+.aside_article div:hover {
+  background-color: #eee;
+}
+
+.aside_article h5 {
+  margin: 0;
+}
+
+.aside_article p {
+  margin: .5rem 0 0 0;
 }
 
 #commentForm {
