@@ -67,8 +67,6 @@ if ($res->num_rows == 0) header('Location: 404.php');
 // Obtém o artigo e armazena em $art[]
 $art = $res->fetch_assoc();
 
-// debug($art);
-
 // Gera a view para o usuário
 $article = <<<ART
 

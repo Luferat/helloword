@@ -1,5 +1,60 @@
 <?php
 
+// Verifica se um novo comentário foi enviado
+if (isset($_POST['txt_comment'])) :
+
+    // Dados do formulário
+    // Referências: https://www.php.net/manual/en/function.strip-tags.php
+    //              https://www.php.net/manual/en/filter.filters.sanitize.php
+    $cmtform = [
+        'article_id' => intval($_POST['article_id']),
+        'social_id' => trim(htmlspecialchars($_POST['social_id'])),
+        'social_name' => trim(htmlspecialchars($_POST['social_name'])),
+        'social_photo' => trim(filter_input(INPUT_POST, 'social_photo', FILTER_SANITIZE_URL)),
+        'social_email' => trim(filter_input(INPUT_POST, 'social_email', FILTER_SANITIZE_EMAIL)),
+        'txt_comment' => trim(strip_tags($_POST['txt_comment']))
+    ];
+
+    // Se os dados necessários foram preenchidos:
+    if (!in_array("", $cmtform)) :
+
+        // SQL para insersão do comentário
+        $sql = <<<SQL
+
+INSERT INTO comment (
+    cmt_article,
+    cmt_social_id,
+    cmt_social_name,
+    cmt_social_photo,
+    cmt_social_email,
+    cmt_content
+) VALUES (
+    ?,?,?,?,?,?
+)
+
+SQL;
+
+        // Prepara o comando SQL para o banco de dados
+        $stmt = $conn->prepare($sql);
+
+        // Envia os dados para o banco
+        $stmt->bind_param(
+            "isssss", // Substitui os "?" do SQL por strings
+            $cmtform['article_id'],
+            $cmtform['social_id'],
+            $cmtform['social_name'],
+            $cmtform['social_photo'],
+            $cmtform['social_email'],
+            $cmtform['txt_comment']
+        );
+
+        // Avisa ao banco de dados para executar a query
+        $stmt->execute();
+
+    endif;
+
+endif;
+
 // Query que recebe todos os comentários do artigo atual
 $sql = <<<SQL
 

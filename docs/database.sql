@@ -301,6 +301,34 @@ INSERT INTO comment
     'https://randomuser.me/api/portraits/men/87.jpg',
     'pedro@pedroso.com',
     'Fogos são gostosos somente no Natal.'
+), (
+    '1', 
+    'ghi890',
+    'Pedro Pedroso', 
+    'https://randomuser.me/api/portraits/men/87.jpg',
+    'pedro@pedroso.com',
+    'Fogos são gostosos somente no Natal.'
+), (
+    '2', 
+    'ghi890',
+    'Pedro Pedroso', 
+    'https://randomuser.me/api/portraits/men/87.jpg',
+    'pedro@pedroso.com',
+    'Fogos são gostosos somente no Natal.'
+), (
+    '1', 
+    'ghi890',
+    'Pedro Pedroso', 
+    'https://randomuser.me/api/portraits/men/87.jpg',
+    'pedro@pedroso.com',
+    'Fogos são gostosos somente no Natal.'
+), (
+    '3', 
+    'ghi890',
+    'Pedro Pedroso', 
+    'https://randomuser.me/api/portraits/men/87.jpg',
+    'pedro@pedroso.com',
+    'Fogos são gostosos somente no Natal.'
 );
 
 -- Popular tabela 'contact'.

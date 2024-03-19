@@ -8,6 +8,10 @@
   height: auto;
 }
 
+.aside-author img {
+  border-radius: .35rem;
+}
+
 .aside-author h4 {
   margin: .5rem 0;
 }
@@ -54,11 +58,11 @@
 }
 
 .aside_article div {
- background-color: white; 
- padding: .5rem;
- border-radius: .35rem;
- cursor: pointer;
- margin-bottom: 1rem;
+  background-color: white;
+  padding: .5rem;
+  border-radius: .35rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .aside_article div:hover {
