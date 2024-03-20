@@ -83,7 +83,13 @@ require('_header.php');
 </article>
 
 <aside>
-    <?php require('widgets/_mostviewed.php') ?>
+    <?php 
+    // Mostra os artigos mais visualizados
+    require('widgets/_mostviewed.php');
+    
+    // Mostra os artigos mais comentados
+    require('widgets/_mostcommented.php');
+    ?>
 </aside>
 
 <?php require('_footer.php') ?>

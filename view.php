@@ -72,7 +72,7 @@ $article = <<<ART
 
 <div class="article">
     <h2>{$art['art_title']}</h2>
-    <small>Por {$art['emp_name']} em {$art['art_datebr']}.</small>
+    <small class="authordate">Por {$art['emp_name']} em {$art['art_datebr']}.</small>
     <div>{$art['art_content']}</div>
 </div>
 
@@ -145,13 +145,19 @@ LIMIT 3;
 SQL;
 $res = $conn->query($sql);
 
-// Inicializa a view
-$aside_articles = '<h4>+ Artigos</h4><div class="aside_article">' . "\n";
+// Atividade 2) Extrai primeiro nome do autor
+$afn = explode(' ', $art['emp_name'])[0];
+
+// Atividade 2) Inicializa a view
+$aside_articles = <<<HTML
+    <h4>+ Artigos de {$afn}</h4>
+    <div class="aside_article">
+HTML;
 
 // Loop da view
 while ($aart = $res->fetch_assoc()) :
 
-     // Se o resumo tem mais de X caracteres
+    // Se o resumo tem mais de X caracteres
     // Referências: https://www.w3schools.com/php/func_string_strlen.asp
     if (strlen($aart['art_summary']) > $site['summary_length'])
 

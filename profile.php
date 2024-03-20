@@ -10,6 +10,18 @@ $page = array(
     "js" => "profile.js"
 );
 
+$user_comments = '';
+
+$sql = <<<SQL
+
+SELECT *
+FROM comment
+WHERE cmt_social_id = 'ID_DO_USUARIO'
+ORDER BY cmt_date DESC
+LIMIT 5;
+
+SQL;
+
 // Inclui o cabeçalho do documento
 require('_header.php');
 ?>
@@ -41,7 +53,7 @@ require('_header.php');
 </article>
 
 <aside>
-    <h3>+ para você</h3>
+    <?php echo $user_comments ?>
 </aside>
 
 <?php

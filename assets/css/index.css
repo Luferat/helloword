@@ -21,10 +21,6 @@
     padding: 0 1rem;
 }
 
-.viewed h5 {
-    margin: .5rem 0;
-}
-
 @media screen and (min-width: 768px) {
 
     .article {
@@ -49,7 +45,7 @@
 
 .viewed div:hover {
     background-color: #eee;
-} 
+}
 
 .viewed h5 {
     margin: 0;
@@ -57,4 +53,13 @@
 
 .viewed p {
     margin: .25rem 0 0 0;
+}
+
+/* Parte do exercício 1 */
+
+.commented {
+    display: block;
+    text-align: right;
+    font-size: .75rem;
+    border-top: 1px dotted grey;
 }
