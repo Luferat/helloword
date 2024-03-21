@@ -72,8 +72,8 @@ if (isset($page['js']))
             <?php // Formulário de Buscas 
             ?>
             <div class="header-search">
-                <form action="search.php" method="get">
-                    <input type="search" name="q" id="search" placeholder="Procurar...">
+                <form action="search.php" method="get" onclick="return searchCheck()">
+                    <input type="search" name="q" id="headerSearch" placeholder="Procurar..." value="<?php echo isset($query)? $query : '' ?>">
                     <button type="submit"><i class="fa-solid fa-magnifying-glass fa-fw fa-flip-horizontal"></i></button>
                 </form>
             </div>

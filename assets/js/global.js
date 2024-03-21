@@ -23,6 +23,8 @@ const userAccess = document.getElementById('userAccess');
 const userImg = document.getElementById('userImg');
 const userIcon = document.getElementById('userIcon');
 const userLabel = document.getElementById('userLabel');
+// Campo de busca
+const headerSearch = document.getElementById('headerSearch');
 
 // Monitora se houve mudanças na autenticação do usuário
 firebase.auth().onAuthStateChanged((user) => {
@@ -90,4 +92,16 @@ function stripTags(htmlText) {
     let div = document.createElement('div');
     div.innerHTML = htmlText.trim().replace(/<script>.*<\/script>/, '');
     return div.textContent;
+}
+
+// Função que valida o preenchimento do formulário de busca
+function searchCheck() {
+    // Sanitiza o valor do campo
+    headerSearch.value = stripTags(headerSearch.value.trim());
+    // Se o campo não tem valor bloqueia o envio do formulário
+    if (headerSearch.value == '') {
+        // alert('Oooops! Você não disse o que quer procurar...');
+        return false;
+    }
+    return true;
 }

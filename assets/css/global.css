@@ -307,3 +307,14 @@ Telas de 425px ou mais...
 .invalidButton {
     background-color: grey;
 }
+
+/* Atividade 3) */
+.authordate {
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .authordate {
+        text-align: right;
+    }
+}
