@@ -3,6 +3,8 @@ const userName = document.getElementById('userName');
 const userCard = document.getElementById('userCard');
 const btnGoogleProfile = document.getElementById('btnGoogleProfile');
 const btnLogout = document.getElementById('btnLogout');
+// Atividade 4
+const linkToProfile = document.getElementById('linkToProfile');
 
 // Monitora se houve mudanças na autenticação do usuário
 firebase.auth().onAuthStateChanged((user) => {
@@ -14,6 +16,10 @@ firebase.auth().onAuthStateChanged((user) => {
         btnGoogleProfile.addEventListener('click', viewProfile);
         // Monitora cliques no botão de logout
         btnLogout.addEventListener('click', fbLogout);
+        // Link para página com comentários
+        linkToProfile.innerHTML = `
+            <a href="profile.php?uid=${user.uid}">Clique aqui</a> para ver seus comentários.
+        `;
     } else {
         // Se alguém deslogou, faça isso:
         // Obtém o parâmetro do link da página

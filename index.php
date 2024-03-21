@@ -87,9 +87,9 @@ require('_header.php');
     // Mostra os artigos mais visualizados
     require('widgets/_mostviewed.php');
     
-    // Mostra os artigos mais comentados
+    // Atividade 1) Mostra os artigos mais comentados
     require('widgets/_mostcommented.php');
     ?>
-</aside>
+</aside> 
 
 <?php require('_footer.php') ?>

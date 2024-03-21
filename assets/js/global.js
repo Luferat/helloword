@@ -45,7 +45,8 @@ if (window.history.replaceState) {
 // Função que trata o usuário logado
 function isLogged(user) {
     // Altera href do link
-    userAccess.href = `profile.php?ref=${location.href}`;
+    // Atividade 4) uid=${user.uid}
+    userAccess.href = `profile.php?uid=${user.uid}&ref=${location.href}`;
     // Altera title do link
     userAccess.title = `Ver perfil de ${user.displayName}`;
     // Oculta o ícone de login

@@ -1,11 +1,12 @@
 <?php
 
 /**
+ *********** Atividade 1 ***********
  * Total a ser exibido, por default '3'
  * Para alterar este valor, no código principal, defina $num_list antes de 
  * fazer o require() deste código.
  **/ 
-$num_list = (isset($num_list)) ? intval($num_list) : 3;
+$num_list = isset($num_list) ? intval($num_list) : 3;
 
 // Inicializa view
 $html_view = '';
@@ -27,7 +28,7 @@ FROM comment
 WHERE 
     -- Requisitos pré estabelecidos
     cmt_status = 'on'
-    AND art_status = 'on'
+    AND art_status = 'on' 
     AND art_date <= NOW()
 -- Agrupa os registros que tem o mesmo cmt_article (ID do artigo)
 GROUP BY cmt_article
@@ -53,7 +54,7 @@ if ($res->num_rows > 0) :
 
         $html_view .= <<<HTML
 
-<div onclick="location.href = 'view.php?id={$art['cmt_article']}'">
+<div onclick="location.href='view.php?id={$art['cmt_article']}'">
     <h5>{$art['art_title']}</h5>
     <p><small>{$art['art_summary']}</small></p>
     <p class="commented"><small>{$tot}</small></p>

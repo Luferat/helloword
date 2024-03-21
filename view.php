@@ -68,6 +68,7 @@ if ($res->num_rows == 0) header('Location: 404.php');
 $art = $res->fetch_assoc();
 
 // Gera a view para o usuário
+// Atividade 3) → <small class="authordate">
 $article = <<<ART
 
 <div class="article">
