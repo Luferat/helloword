@@ -74,9 +74,12 @@ function notLogged() {
 }
 
 // Função que converte datas do Firebase (timestamp) para pt-BR
-function convertTimestampToDateFormat(timestamp) {
-    const date = new Date(timestamp);
+function convertTimestampToDateFormat(jsFormatedDate) {
+    const date = new Date(jsFormatedDate);
+    // padStart(a, b) preenche o começo da string com "b" até que ela tenha o comprimento "a"
+    // Referências: https://www.w3schools.com/jsref/jsref_string_padstart.asp
     const day = date.getDate().toString().padStart(2, '0');
+    // Os meses estão em um array onde janeiro = é [0], por isso, + 1
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
     const hour = date.getHours().toString().padStart(2, '0');
@@ -86,7 +89,25 @@ function convertTimestampToDateFormat(timestamp) {
 
 // Função que remove espaços antes e depois, códigos JavaScript e tags HTML da string argumento
 function stripTags(htmlText) {
+    // Cria um novo elemento <div> no documento
     let div = document.createElement('div');
+    // Remove JavaScript e insere a string de argumento no novo elemento
     div.innerHTML = htmlText.trim().replace(/<script>.*<\/script>/, '');
+    // Retorna somente os textos do elemento, sem HTML
     return div.textContent;
+}
+
+// Sanitiza e bloqueia envio do formulário de buscas
+function formSearchValidate(searchFieldId) {
+    // Obtém e sanitiza valor do campo de busca
+    var searchTerm = stripTags(document.getElementById(searchFieldId).value.trim());
+    // Se o campo está vazio:
+    if (searchTerm === "") {
+        // Envia alerta
+        alert("Por favor, preencha o campo de busca.");
+        // Impede o envio do formulário
+        return false;
+    }
+    // Permite o envio do formulário
+    return true;
 }

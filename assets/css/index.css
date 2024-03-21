@@ -63,3 +63,34 @@
     font-size: .75rem;
     border-top: 1px dotted grey;
 }
+
+.search-small {
+    display: block;
+    text-align: right;
+    margin: 1rem;
+}
+
+.page-search form {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    max-width: 450px;
+}
+
+.page-search input,
+.page-search button {
+    border: 0;
+    background-color: #eee;
+}
+
+.page-search input {
+    padding: .5rem 1rem;
+    flex-grow: 1;
+    border-radius: .35rem 0 0 .35rem;
+}
+
+.page-search button {
+    background-color: #ddd;
+    border-radius: 0 .35rem .35rem 0;
+    color: grey;
+}
