@@ -6,8 +6,7 @@ require("_global.php");
 // Configurações desta página
 $page = array(
     "title" => "Procurando...",
-    "css" => "index.css",
-    "js" => "search.js"
+    "css" => "index.css"
 );
 
 // Incializa variável da view
