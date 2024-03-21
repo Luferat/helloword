@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Exibe uma lista de ícones de redes sociais
+ * Exibe uma lista de ícones de redes sociais na <aside>
  * A lista está cadastrada em $site['social_list'] no arquivo
  * de configuração global (_global.php).
  * As folhas de estilo estão em 'assets/css/global.css'.
