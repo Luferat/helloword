@@ -5,7 +5,8 @@ require("_global.php");
 
 // Configurações desta página
 $page = array(
-    "title" => "Políticas de Privacidade"
+    "title" => "Políticas de Privacidade",
+    "css" => "privacy.css"
 );
 
 // Inclui o cabeçalho do documento
@@ -36,12 +37,14 @@ require('_header.php');
 
     <h3>Veja +</h3>
     <ul>
-        <li><a href="contacts.php">Faça contato</a></li>
+        <li><a href="contacts.php">Faça contato conosco</a></li>
         <li><a href="about.php">Sobre o <?php echo $site['sitename'] ?></a></li>
     </ul>
 
     <?php
-    // Lista de redes sociais
+    // Mostra ícone de contatos na lista de redes sociais
+    $show_contact = true;
+    // Importa lista de redes sociais
     require('widgets/_socialaside.php');
     ?>
 

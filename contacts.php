@@ -83,12 +83,12 @@ if (isset($_POST['send'])) :
         // Grava contato no banco de dados
         $sql = <<<SQL
 
-INSERT INTO contact
-    (ctt_name, ctt_email, ctt_subject, ctt_message)
-VALUES
-    (?, ?, ?, ?);
+        INSERT INTO contact
+            (ctt_name, ctt_email, ctt_subject, ctt_message)
+        VALUES
+            (?, ?, ?, ?);
 
-SQL;
+        SQL;
 
         // Teste o SQL no PHPMyAdmin para ter certeza de que está ok
         // debug($sql, true);
@@ -116,14 +116,14 @@ SQL;
 
         // Monta feedback de erro para o remetente
         $error = <<<HTML
-        
-        <span id="closeme"><i class="fa-solid fa-xmark fa-fw"></i></span>
-        <h4>Ooooops!</h4>
-        <p>Ocorreram erros no preenchimento do formulário.
-        <ul>{$error}</ul>
-        <p>Por favor, revise o preenchimento e envie novamente.</p>                
 
-HTML;
+                <span id="closeme"><i class="fa-solid fa-xmark fa-fw"></i></span>
+                <h4>Ooooops!</h4>
+                <p>Ocorreram erros no preenchimento do formulário.
+                <ul>{$error}</ul>
+                <p>Por favor, revise o preenchimento e envie novamente.</p>                
+
+        HTML;
 
     endif;
 
@@ -185,6 +185,12 @@ require('_header.php');
     // Lista de redes sociais
     require('widgets/_socialaside.php');
     ?>
+
+    <h3>Veja +</h3>
+    <ul>
+        <li><a href="contacts.php">Faça contato conosco</a></li>
+        <li><a href="about.php">Sobre o <?php echo $site['sitename'] ?></a></li>
+    </ul>
 </aside>
 
 <?php

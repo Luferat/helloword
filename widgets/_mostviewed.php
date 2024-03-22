@@ -37,13 +37,13 @@ while ($mv = $res->fetch_assoc()) :
 
     $aside_viewed .= <<<HTML
 
-<div onclick="location.href = 'view.php?id={$mv['art_id']}'">
-    <h5>{$mv['art_title']}</h5>
-    <small title="{$mv['art_summary']}">{$mv['art_summary']}</small>
-    <small class="footer">{$art_views}</small>
-</div>
+    <div onclick="location.href = 'view.php?id={$mv['art_id']}'">
+        <h5>{$mv['art_title']}</h5>
+        <small title="{$mv['art_summary']}">{$mv['art_summary']}</small>
+        <small class="footer">{$art_views}</small>
+    </div>
 
-HTML;
+    HTML;
 
 endwhile;
 

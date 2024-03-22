@@ -22,7 +22,10 @@ $query = isset($_GET['q']) ? trim(htmlentities(strip_tags($_GET['q']))) : '';
 if ($query != '') :
 
     // Incializa variável da view
-    $search_view .= "<h2>Procurando por '{$query}'</h2>";
+    $search_view .= <<<HTML
+        <h2>Procurando por '{$query}'</h2>
+        <p>Use o campo de buscas para refinar ainda mais os resultados.</p>
+    HTML;
 
     // Altera <title>
     $page['title'] = "Procurando por '{$query}'";
@@ -30,22 +33,22 @@ if ($query != '') :
     // Consulta SQL usa prepared statement
     $sql = <<<SQL
 
--- Referências: https://www.w3schools.com/mysql/mysql_like.asp
+    -- Referências: https://www.w3schools.com/mysql/mysql_like.asp
 
-SELECT 
-	art_id, art_thumbnail, art_title, art_summary 
-FROM article 
-WHERE
-	-- Requisitos padrão
-    art_date <= NOW()
-    AND art_status = 'on'
-    -- Busca
-    AND art_title LIKE ?
-    OR art_summary LIKE ?
-    OR art_content LIKE ?
-ORDER BY art_date DESC;
+    SELECT 
+        art_id, art_thumbnail, art_title, art_summary 
+    FROM article 
+    WHERE
+        -- Requisitos padrão
+        art_date <= NOW()
+        AND art_status = 'on'
+        -- Busca
+        AND art_title LIKE ?
+        OR art_summary LIKE ?
+        OR art_content LIKE ?
+    ORDER BY art_date DESC;
 
-SQL;
+    SQL;
 
     // Prepara a query de busca
     $search_query = "%{$query}%";
@@ -59,6 +62,7 @@ SQL;
         $search_query
     );
     $stmt->execute();
+
     // Obtém o resultado da consulta
     $res = $stmt->get_result();
 
@@ -69,8 +73,7 @@ SQL;
     if ($total > 0) :
 
         // Processa o total de resultados
-        if ($total == 1) $viewtotal = '1 resultato';
-        else $viewtotal = "{$total} resultados";
+        $viewtotal = $total == 1 ? '1 resultato' : "{$total} resultados";
 
         $search_view .= "<p><small class=\"authordate\">{$viewtotal}</small></p>";
 
@@ -78,15 +81,15 @@ SQL;
 
             $search_view .= <<<HTML
 
-<div class="article" onclick="location.href = 'view.php?id={$art['art_id']}'">
-    <img src="{$art['art_thumbnail']}" alt="{$art['art_title']}">
-    <div>
-        <h4>{$art['art_title']}</h4>
-        <p>{$art['art_summary']}</p>
-    </div>
-</div>
+            <div class="article" onclick="location.href = 'view.php?id={$art['art_id']}'">
+                <img src="{$art['art_thumbnail']}" alt="{$art['art_title']}">
+                <div>
+                    <h4>{$art['art_title']}</h4>
+                    <p>{$art['art_summary']}</p>
+                </div>
+            </div>
 
-HTML;
+            HTML;
 
         endwhile;
 
@@ -99,10 +102,10 @@ else :
 
     $search_view .= <<<HTML
 
-<h2>Procurando...</h2>
-<p class="center">Digite algo no campo de busca!</p>
+    <h2>Procurando...</h2>
+    <p class="center">Digite algo no campo de busca!</p>
 
-HTML;
+    HTML;
 
 endif;
 

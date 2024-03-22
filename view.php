@@ -177,13 +177,13 @@ while ($aart = $res->fetch_assoc()) :
 
     $aside_articles .= <<<HTML
 
-<div onclick="location.href = 'view.php?id={$aart['art_id']}'">
-    <h5>{$aart['art_title']}</h5>
-    <small title="{$aart['art_summary']}">{$aart['art_summary']}</small>
-    <small class="footer">{$art_views}</small>
-</div>
+    <div onclick="location.href = 'view.php?id={$aart['art_id']}'">
+        <h5>{$aart['art_title']}</h5>
+        <small title="{$aart['art_summary']}">{$aart['art_summary']}</small>
+        <small class="footer">{$art_views}</small>
+    </div>
 
-HTML;
+    HTML;
 
 endwhile;
 

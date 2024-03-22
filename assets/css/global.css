@@ -335,8 +335,6 @@ Telas de 425px ou mais...
 
 */
 
-.aside_block {}
-
 .aside_block div {
     background-color: #fff;
     padding: .5rem;
@@ -369,12 +367,15 @@ Telas de 425px ou mais...
 
 .social-side {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     padding-bottom: 1rem;
 }
 
 .social-side a {
     border-radius: .35rem;
+    margin: .25rem;
 }
 
 .social-side a:hover {

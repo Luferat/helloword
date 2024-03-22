@@ -51,13 +51,13 @@ if ($res->num_rows > 0) :
 
         $html_view .= <<<HTML
 
-<div onclick="location.href='view.php?id={$art['cmt_article']}'">
-    <h5>{$art['art_title']}</h5>
-    <small>{$art['art_summary']}</small>
-    <small class="footer">{$tot}</small>
-</div>
+        <div onclick="location.href='view.php?id={$art['cmt_article']}'">
+            <h5>{$art['art_title']}</h5>
+            <small>{$art['art_summary']}</small>
+            <small class="footer">{$tot}</small>
+        </div>
 
-HTML;
+        HTML;
 
     endwhile;
 

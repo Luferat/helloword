@@ -21,18 +21,18 @@ if (isset($_POST['txt_comment'])) :
         // SQL para insersão do comentário
         $sql = <<<SQL
 
-INSERT INTO comment (
-    cmt_article,
-    cmt_social_id,
-    cmt_social_name,
-    cmt_social_photo,
-    cmt_social_email,
-    cmt_content
-) VALUES (
-    ?,?,?,?,?,?
-)
+            INSERT INTO comment (
+                cmt_article,
+                cmt_social_id,
+                cmt_social_name,
+                cmt_social_photo,
+                cmt_social_email,
+                cmt_content
+            ) VALUES (
+                ?,?,?,?,?,?
+            )
 
-SQL;
+        SQL;
 
         // Prepara o comando SQL para o banco de dados
         $stmt = $conn->prepare($sql);
@@ -58,14 +58,14 @@ endif;
 // Query que recebe todos os comentários do artigo atual
 $sql = <<<SQL
 
-SELECT 
-cmt_id, cmt_social_name, cmt_social_photo, cmt_content,
-DATE_FORMAT(cmt_date, "%d/%m/%Y às %H:%i") AS cmt_datebr
-FROM comment
-WHERE
-	cmt_article = '{$id}'
-    AND cmt_status = 'on'
-ORDER BY cmt_date DESC;
+    SELECT 
+    cmt_id, cmt_social_name, cmt_social_photo, cmt_content,
+    DATE_FORMAT(cmt_date, "%d/%m/%Y às %H:%i") AS cmt_datebr
+    FROM comment
+    WHERE
+        cmt_article = '{$id}'
+        AND cmt_status = 'on'
+    ORDER BY cmt_date DESC;
 
 SQL;
 
@@ -92,15 +92,15 @@ if ($cmt_total > 0) :
 
         $comments_view .= <<<HTML
 
-<div class="cmt_box">
-    <div class="cmt_header">
-        <img src="{$cmt['cmt_social_photo']}" alt="{$cmt['cmt_social_name']}" referrerpolicy="no-referrer">
-        <small>Por {$cmt['cmt_social_name']} em {$cmt['cmt_datebr']}.</small>
-    </div>
-    <div class="cmt_body">{$cmt_content}</div>
-</div>
+            <div class="cmt_box">
+                <div class="cmt_header">
+                    <img src="{$cmt['cmt_social_photo']}" alt="{$cmt['cmt_social_name']}" referrerpolicy="no-referrer">
+                    <small>Por {$cmt['cmt_social_name']} em {$cmt['cmt_datebr']}.</small>
+                </div>
+                <div class="cmt_body">{$cmt_content}</div>
+            </div>
 
-HTML;
+        HTML;
 
     endwhile;
 

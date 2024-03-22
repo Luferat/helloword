@@ -48,7 +48,16 @@ $articles = '';
 
 // Se não tem artigos, exibe um aviso
 if ($total == 0) :
-    $articles = "<h2>Artigos recentes</h2><p>Não achei nada!</p>";
+
+    /**
+     * Aqui, podemos usar aspas para quebrar linhas,
+     * pois não as usamos no conteúdo
+     **/
+    $articles = "
+        <h2>Artigos recentes</h2>
+        <p>Não achei nada!</p>
+    ";
+
 else :
 
     // Título
@@ -58,17 +67,24 @@ else :
     // Loop para obter cada artigo
     while ($art = $res->fetch_assoc()) :
 
+        /**
+         * Aqui, vamos usar heredoc (<<<HTML ... HTML) porque temos código
+         * PHP e HTML mais complexos. Observe que não deve haver identação
+         * do conteúdo recuado além do fechamento do heredoc.
+         * Referências: 
+         *      https://www.php.net/manual/pt_BR/language.types.string.php#language.types.string.syntax.heredoc
+         **/
         $articles .= <<<HTML
 
-<div class="article" onclick="location.href = 'view.php?id={$art['art_id']}'">
-    <img src="{$art['art_thumbnail']}" alt="{$art['art_title']}">
-    <div>
-        <h4>{$art['art_title']}</h4>
-        <p>{$art['art_summary']}</p>
-    </div>
-</div>
+        <div class="article" onclick="location.href = 'view.php?id={$art['art_id']}'">
+            <img src="{$art['art_thumbnail']}" alt="{$art['art_title']}">
+            <div>
+                <h4>{$art['art_title']}</h4>
+                <p>{$art['art_summary']}</p>
+            </div>
+        </div>
 
-HTML;
+        HTML;
 
     endwhile;
 
@@ -83,13 +99,13 @@ require('_header.php');
 </article>
 
 <aside>
-    <?php 
+    <?php
     // Mostra os artigos mais visualizados
     require('widgets/_mostviewed.php');
-    
+
     // Atividade 1) Mostra os artigos mais comentados
     require('widgets/_mostcommented.php');
     ?>
-</aside> 
+</aside>
 
 <?php require('_footer.php') ?>
