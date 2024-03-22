@@ -18,6 +18,9 @@ firebase.initializeApp(firebaseConfig);
 // Inicializa o Firebase Authentication
 const auth = firebase.auth();
 
+// Inicializa o Realtime Database
+const database = firebase.database();
+
 // Identifica elementos do HTML para interação
 const userAccess = document.getElementById('userAccess');
 const userImg = document.getElementById('userImg');
@@ -89,8 +92,8 @@ function notLogged() {
 }
 
 // Função que converte datas do Firebase (timestamp) para pt-BR
-function convertTimestampToDateFormat(timestamp) {
-    const date = new Date(timestamp);
+function convertTimestampToDateFormat(fbDate) {
+    const date = new Date(fbDate);
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
@@ -118,5 +121,14 @@ function searchCheck() {
     return true;
 }
 
-
-
+// Função que gera a data atual como string no formato ISO → 'YYYY-MM-DD HH:II:SS'.
+function now() {
+    // Obtém a data atual  
+    let nowDate = new Date();
+    // Ajusta o 'timezone'.
+    nowDate = new Date(nowDate.getTime() - (nowDate.getTimezoneOffset() * 60 * 1000));
+    // Formata a data para 'YYYY-MM-DD HH:II:SS'
+    const outDate = nowDate.toISOString().split('.')[0].replace('T', ' ');
+    // Retorna a data.
+    return outDate;
+}

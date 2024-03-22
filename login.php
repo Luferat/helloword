@@ -18,7 +18,7 @@ require('_header.php');
     <h2>Login / Entrar</h2>
     <p>Logue-se para ter acesso aos recursos restritos do site.</p>
     <p>Use sua conta Google / Gmail.</p>
-    <p id="loginError" class="red"></p>
+    <p id="loginError" class="center red"></p>
     <p class="center">
         <button type="button" id="btnLogin">
             <i class="fa-brands fa-google fa-fw"></i>

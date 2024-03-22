@@ -14,7 +14,10 @@ $page = array(
 $uid = isset($_GET['uid']) ? trim(htmlentities($_GET['uid'])) : '';
 
 // Atividade 4) Inicializa a view dos comentários do usuário na <aside>
-$user_comments = '<div class="aside_block"><h3>Seus comentários</h3>';
+$user_comments = '
+    <div class="aside_block">
+        <h3>Seus comentários</h3>
+';
 
 if ($uid != '') :
 
@@ -71,7 +74,7 @@ if ($uid != '') :
     endif;
 
 else :
-    $user_comments .= '<p class="center" id="linkToProfile"></p>';
+    $user_comments .= '<p class="center" id="linkToProfile">ddd</p>';
 endif;
 
 // Inclui o cabeçalho do documento

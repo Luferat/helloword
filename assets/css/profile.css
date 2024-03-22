@@ -42,3 +42,7 @@ article button {
 #btnLogout {
     background-color: orangered;
 }
+
+#linkToProfile {
+    display: none;
+}

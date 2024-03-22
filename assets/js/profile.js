@@ -10,16 +10,17 @@ const linkToProfile = document.getElementById('linkToProfile');
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         // Se alguém se logou, faça isso:
+        // Link para página com comentários
+        if (linkToProfile) {
+            linkToProfile.innerHTML = `<a href="profile.php?uid=${user.uid}">Clique aqui</a> para ver seus comentários.`;
+            linkToProfile.style.display = 'block';
+        }
         // Chama a função que exibe o card do usuário logado
         showUserCard(user);
         // Monitora cliques no botão de perfil
         btnGoogleProfile.addEventListener('click', viewProfile);
         // Monitora cliques no botão de logout
         btnLogout.addEventListener('click', fbLogout);
-        // Link para página com comentários
-        linkToProfile.innerHTML = `
-            <a href="profile.php?uid=${user.uid}">Clique aqui</a> para ver seus comentários.
-        `;
     } else {
         // Se alguém deslogou, faça isso:
         // Obtém o parâmetro do link da página
