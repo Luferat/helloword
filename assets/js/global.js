@@ -44,6 +44,18 @@ if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href);
 }
 
+// Seleciona todos os elementos div com a classe 'aside-box'
+var asideBoxes = document.querySelectorAll('div.aside-box');
+
+// Itera sobre cada elemento div.aside-box
+asideBoxes.forEach(function (box) {
+    // Verifica se o elemento possui o atributo 'onclick'
+    if (box.hasAttribute('onclick')) {
+        // Adiciona a classe 'clickable' ao elemento
+        box.classList.add('clickable');
+    }
+});
+
 // Função que trata o usuário logado
 function isLogged(user) {
     // Altera href do link
@@ -105,3 +117,6 @@ function searchCheck() {
     }
     return true;
 }
+
+
+

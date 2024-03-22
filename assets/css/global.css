@@ -320,31 +320,12 @@ Telas de 425px ou mais...
 }
 
 /* Blocos com artigos na aside */
-/*
-
-<div class="aside_block">
-    <h3>Título</h3>
-    <!-- loop -->
-    <div>
-        <h5>Título do artigo</h5>
-        <small>Resumo do artigo</small>
-        <small class="footer">Footer do artigo</small>
-    </div>
-    <!-- end loop -->
-</div>
-
-*/
 
 .aside_block div {
     background-color: #fff;
     padding: .5rem;
     border-radius: .35rem;
-    cursor: pointer;
     margin-bottom: 1rem;
-}
-
-.aside_block div:hover {
-    background-color: #eee;
 }
 
 .aside_block h5 {
@@ -361,6 +342,14 @@ Telas de 425px ou mais...
     padding-top: .25rem;
     font-size: 70%;
     text-align: right;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    background-color: #eee;
 }
 
 /* Lista de ícones de redes sociais */

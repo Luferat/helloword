@@ -33,20 +33,19 @@ if ($query != '') :
     // Consulta SQL usa prepared statement
     $sql = <<<SQL
 
-    -- Referências: https://www.w3schools.com/mysql/mysql_like.asp
-
-    SELECT 
-        art_id, art_thumbnail, art_title, art_summary 
-    FROM article 
-    WHERE
-        -- Requisitos padrão
-        art_date <= NOW()
-        AND art_status = 'on'
-        -- Busca
-        AND art_title LIKE ?
-        OR art_summary LIKE ?
-        OR art_content LIKE ?
-    ORDER BY art_date DESC;
+        SELECT 
+            art_id, art_thumbnail, art_title, art_summary 
+        FROM article 
+        WHERE
+            -- Requisitos padrão
+            art_date <= NOW()
+            AND art_status = 'on'
+            -- Busca usando LIKE
+            -- Referências: https://www.w3schools.com/mysql/mysql_like.asp
+            AND art_title LIKE ?
+            OR art_summary LIKE ?
+            OR art_content LIKE ?
+        ORDER BY art_date DESC;
 
     SQL;
 
@@ -74,28 +73,14 @@ if ($query != '') :
 
         // Processa o total de resultados
         $viewtotal = $total == 1 ? '1 resultato' : "{$total} resultados";
+        $search_view .= '<p><small class="authordate">' . $viewtotal . '</small></p>';
 
-        $search_view .= "<p><small class=\"authordate\">{$viewtotal}</small></p>";
-
-        while ($art = $res->fetch_assoc()) :
-
-            $search_view .= <<<HTML
-
-            <div class="article" onclick="location.href = 'view.php?id={$art['art_id']}'">
-                <img src="{$art['art_thumbnail']}" alt="{$art['art_title']}">
-                <div>
-                    <h4>{$art['art_title']}</h4>
-                    <p>{$art['art_summary']}</p>
-                </div>
-            </div>
-
-            HTML;
-
-        endwhile;
+        while ($art = $res->fetch_assoc())
+            $search_view .= article_box($art);
 
     // Se não achou nada:
     else :
-        $search_view .= "<p class=\"center\">Nenhum conteúdo encontrado com '{$query}'.</p>";
+        $search_view .= '<p class="center">Nenhum conteúdo encontrado com "' . $query . '".</p>';
     endif;
 
 else :

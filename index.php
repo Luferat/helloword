@@ -65,28 +65,8 @@ else :
     else $articles = "<h2>{$total} artigos mais recentes</h2>";
 
     // Loop para obter cada artigo
-    while ($art = $res->fetch_assoc()) :
-
-        /**
-         * Aqui, vamos usar heredoc (<<<HTML ... HTML) porque temos código
-         * PHP e HTML mais complexos. Observe que não deve haver identação
-         * do conteúdo recuado além do fechamento do heredoc.
-         * Referências: 
-         *      https://www.php.net/manual/pt_BR/language.types.string.php#language.types.string.syntax.heredoc
-         **/
-        $articles .= <<<HTML
-
-        <div class="article" onclick="location.href = 'view.php?id={$art['art_id']}'">
-            <img src="{$art['art_thumbnail']}" alt="{$art['art_title']}">
-            <div>
-                <h4>{$art['art_title']}</h4>
-                <p>{$art['art_summary']}</p>
-            </div>
-        </div>
-
-        HTML;
-
-    endwhile;
+    while ($art = $res->fetch_assoc())
+        $articles .= article_box($art);
 
 endif;
 

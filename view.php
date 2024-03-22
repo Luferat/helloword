@@ -175,15 +175,13 @@ while ($aart = $res->fetch_assoc()) :
     elseif ($aart['art_views'] == 1) $art_views = "1 visualização";
     else $art_views = "{$aart['art_views']} visualizações";
 
-    $aside_articles .= <<<HTML
-
-    <div onclick="location.href = 'view.php?id={$aart['art_id']}'">
-        <h5>{$aart['art_title']}</h5>
-        <small title="{$aart['art_summary']}">{$aart['art_summary']}</small>
-        <small class="footer">{$art_views}</small>
-    </div>
-
-    HTML;
+    // Monta a view
+    $aside_articles .= aside_box([
+        'href' => "view.php?id={$aart['art_id']}'",
+        'title' => $aart['art_title'],
+        'body' => $aart['art_summary'],
+        'footer' => $art_views
+    ]);
 
 endwhile;
 

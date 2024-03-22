@@ -5,7 +5,7 @@
  * Total a ser exibido, por default '3'
  * Para alterar este valor, no código principal, defina $num_list antes de 
  * fazer o require() deste código.
- **/ 
+ **/
 $num_list = isset($num_list) ? intval($num_list) : 3;
 
 // Obtém uma lista de artigos mais comentados no site
@@ -49,15 +49,14 @@ if ($res->num_rows > 0) :
         else
             $tot = $art['total_comments'] . ' comentários';
 
-        $html_view .= <<<HTML
 
-        <div onclick="location.href='view.php?id={$art['cmt_article']}'">
-            <h5>{$art['art_title']}</h5>
-            <small>{$art['art_summary']}</small>
-            <small class="footer">{$tot}</small>
-        </div>
-
-        HTML;
+        // Monta a view do box
+        $html_view .= aside_box([
+            'href' => "view.php?id={$art['cmt_article']}'",
+            'title' => $art['art_title'],
+            'body' => $art['art_summary'],
+            'footer' => $tot
+        ]);
 
     endwhile;
 

@@ -142,3 +142,80 @@ function debug($target, $exit = false)
     echo "</pre>";
     if ($exit) exit();
 }
+
+/**
+ * Função que exibe caixa de conteúdo na <aside>
+ * parâmetros (todos opcionais):
+ *  [
+ *      'href' => URL string → URL de destino ao clicar na caixa. Default: caixa não clicável
+ *      'title' => string → Título (<h5>) da caixa. Default: sem título
+ *      'body' => string → Conteúdo da caixa. Default: sem conteúdo
+ *      'limit' => integer → Caracteres de corte de 'body'. Ao cortar, adiciona '...' no final. Default: sem corte
+ *      'footer' => string → Conteúdo do rodapé. Default: sem conteúdo
+ *      'echo' => boolean → Exibe a caixa na view. Default: sem exibição
+ *  ]
+ * 
+ * Importante!
+ * A função deve ser "chamada" dentro de um elemento div.aside_block.
+ * Exemplo de uso:
+ * 
+ *  <div class="aside_block">
+ *    <h3>Título da seção</h3>
+ *    <?php
+ *      // Isso pode estar em um loop!
+ *      aside_box([
+ *        'href' => 'view.php?id=1',
+ *        'title' => "Bem-vindo ao Blog",
+ *        'body' => 'Nosso blog é dedicado a explorar o fascinante universo das plantas e árvores, desde ornamentais até variedades frutíferas e medicinais.',
+ *        'footer' => '10 visitas',
+ *        'echo' => true,
+ *        'limit' => 50
+ *      ]);
+ *    ?>
+ *  </div>
+ * 
+ * As folhas de estilo de div.aside_block e div.clickable estão em 'assets/css/globa.css'.
+ **/
+function aside_box($data = [])
+{
+    // Inicializa saída
+    $out = '';
+    // Trata elemento clicável
+    $out .= isset($data['href']) ? '<div class="aside-box" onclick="location.href=\'' . $data['href'] . '\'">' : '<div>';
+    // Trata título do box
+    $out .= isset($data['title']) ? '<h5>' . $data['title'] . '</h5>' : '';
+    // Trata conteúdo do box
+    if (isset($data['body'])) :
+        // Inicializa conteúdo
+        $body = $data['body'];
+        // Se limitou o conteúdo
+        if (isset($data['limit']))
+            // Verifica se o corte é necessário
+            if (strlen($body) > $data['limit'])
+                // Corta e adiciona '...' no final
+                $body = substr($body, 0, $data['limit'] - 3) . '...';
+        // Envia para a saída
+        $out .= '<small title="' . $data['body'] . '">' . $body . '</small>';
+    endif;
+    // Trara o rodapé do box
+    $out .= isset($data['footer']) ? '<small class="footer">' . $data['footer'] . '</small>' : '';
+    // Conclui a saída
+    $out .= '</div>';
+    // Echoa a saída se solicitado
+    if (isset($data['echo'])) echo $out;
+    // Retorna a saída e encerra
+    return $out;
+}
+
+function article_box($data)
+{
+    return <<<HTML
+        <div class="article" onclick="location.href='view.php?id={$data['art_id']}'">
+            <img src="{$data['art_thumbnail']}" alt="{$data['art_title']}">
+            <div>
+                <h4>{$data['art_title']}</h4>
+                <p>{$data['art_summary']}</p>
+            </div>
+        </div>
+    HTML;
+}

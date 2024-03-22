@@ -81,14 +81,12 @@ if (isset($_POST['send'])) :
     if ($error == '') :
 
         // Grava contato no banco de dados
-        $sql = <<<SQL
-
-        INSERT INTO contact
-            (ctt_name, ctt_email, ctt_subject, ctt_message)
-        VALUES
-            (?, ?, ?, ?);
-
-        SQL;
+        $sql = "
+            INSERT INTO contact
+                (ctt_name, ctt_email, ctt_subject, ctt_message)
+            VALUES
+                (?, ?, ?, ?);
+        ";
 
         // Teste o SQL no PHPMyAdmin para ter certeza de que está ok
         // debug($sql, true);

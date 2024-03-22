@@ -21,19 +21,19 @@ if ($uid != '') :
     // Query para obter os comentários
     $sql = <<<SQL
 
-    SELECT 
-        cmt_content,
-        art_id, art_title
-    FROM comment
-        INNER JOIN article ON cmt_article = art_id
-    WHERE 
-        -- Requisitos
-        cmt_status = 'on'
-        AND art_status = 'on'
-        AND art_date <= NOW()
-        AND cmt_social_id = ?
-    ORDER BY cmt_date DESC
-    LIMIT 5;
+        SELECT 
+            cmt_content,
+            art_id, art_title
+        FROM comment
+            INNER JOIN article ON cmt_article = art_id
+        WHERE 
+            -- Requisitos
+            cmt_status = 'on'
+            AND art_status = 'on'
+            AND art_date <= NOW()
+            AND cmt_social_id = ?
+        ORDER BY cmt_date DESC
+        LIMIT 5;
 
     SQL;
 
@@ -53,41 +53,25 @@ if ($uid != '') :
         while ($art = $res->fetch_assoc()) :
 
             $cmt_content = $art['cmt_content'];
-            if (strlen($cmt_content) > 50) {
+            if (strlen($cmt_content) > 50)
                 $cmt_content = substr($cmt_content, 0, 47) . "...";
-            }
 
-            $user_comments .= <<<HTML
-
-            <div class="box" onclick="location.href='view.php?id={$art['art_id']}'">
-                <h5>{$art['art_title']}</h5>
-                <small title="{$art['cmt_content']}">{$cmt_content}</small>
-            </div>
-
-            HTML;
+            $user_comments .= aside_box([
+                'href' => "view.php?id={$art['art_id']}'",
+                'title' => $art['art_title'],
+                'body' => $cmt_content
+            ]);
 
         endwhile;
 
-        $user_comments .= "</div>";
+        $user_comments .= '</div>';
 
     else :
-
-        $user_comments .= <<<HTML
-
-        <p class="center">Você ainda não tem comentários. Acesse nossos <a href="index.php">artigos</a> e comente!</p>
-                
-        HTML;
-
+        $user_comments .= '<p class="center">Você ainda não tem comentários. Acesse nossos <a href="index.php">artigos</a> e comente!</p>';
     endif;
 
 else :
-
-    $user_comments .= <<<HTML
-
-    <p class="center" id="linkToProfile"></p>
-
-    HTML;
-
+    $user_comments .= '<p class="center" id="linkToProfile"></p>';
 endif;
 
 // Inclui o cabeçalho do documento

@@ -35,15 +35,13 @@ while ($mv = $res->fetch_assoc()) :
     elseif ($mv['art_views'] == 1) $art_views = "1 visualização";
     else $art_views = "{$mv['art_views']} visualizações";
 
-    $aside_viewed .= <<<HTML
-
-    <div onclick="location.href = 'view.php?id={$mv['art_id']}'">
-        <h5>{$mv['art_title']}</h5>
-        <small title="{$mv['art_summary']}">{$mv['art_summary']}</small>
-        <small class="footer">{$art_views}</small>
-    </div>
-
-    HTML;
+    // Monta a view do box
+    $aside_viewed .= aside_box([
+        'href' => "view.php?id={$mv['art_id']}'",
+        'title' => $mv['art_title'],
+        'body' => $mv['art_summary'],
+        'footer' => $art_views
+    ]);
 
 endwhile;
 
