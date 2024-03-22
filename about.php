@@ -110,6 +110,8 @@ require('_header.php');
     $show_contact = true;
     // Importa lista de redes sociais
     require('widgets/_socialaside.php');
+    // Importa lista de artigos recentes
+    require('widgets/_newest.php');
     ?>
 
 </aside>

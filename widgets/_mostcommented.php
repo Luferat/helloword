@@ -8,6 +8,8 @@
  **/
 $num_list = isset($num_list) ? intval($num_list) : 3;
 
+$output = '';
+
 // Obtém uma lista de artigos mais comentados no site
 // Referências: https://www.w3schools.com/mysql/mysql_groupby.asp
 $sql = <<<SQL
@@ -40,18 +42,17 @@ $res = $conn->query($sql);
 // Se existem artigos:
 if ($res->num_rows > 0) :
 
-    $html_view = '<h3>+ Comentados</h3>';
+    $output = '
+        <div class="aside_block">
+            <h3>+ Comentados</h3>
+    ';
 
     while ($art = $res->fetch_assoc()) :
 
-        if ($art['total_comments'] == 1)
-            $tot = '1 comentário.';
-        else
-            $tot = $art['total_comments'] . ' comentários';
-
+        $tot = $art['total_comments'] == 1 ? '1 comentário.' : $art['total_comments'] . ' comentários';
 
         // Monta a view do box
-        $html_view .= aside_box([
+        $output .= aside_box([
             'href' => "view.php?id={$art['cmt_article']}'",
             'title' => $art['art_title'],
             'body' => $art['art_summary'],
@@ -60,10 +61,8 @@ if ($res->num_rows > 0) :
 
     endwhile;
 
+    $output .= '</div>';
+
 endif;
 
-?>
-
-<div class="aside_block">
-    <?php echo $html_view ?>
-</div>
+echo $output;
