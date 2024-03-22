@@ -5,8 +5,8 @@ require("_global.php");
 
 // Configurações desta página
 $page = array(
-    "title" => "Erro 404", // Título desta página
-    "css" => "404.css",            // Folha de estilos desta página
+    "title" => "Erro 404",
+    "css" => "404.css"
 );
 
 // Inclui o cabeçalho do documento
@@ -21,10 +21,10 @@ require('_header.php');
 </article>
 
 <aside>
-    <?php 
+    <?php
     $num_list = 2;
     require('widgets/_mostviewed.php');
-     ?>
+    ?>
 </aside>
 
 <?php

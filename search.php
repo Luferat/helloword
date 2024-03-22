@@ -9,7 +9,7 @@ $page = array(
     "css" => "index.css"
 );
 
-// Incializa variável da view
+// inicializa a view
 $search_view = '';
 
 // Incializa vatiável com total de comentários
@@ -20,6 +20,12 @@ $query = isset($_GET['q']) ? trim(htmlentities(strip_tags($_GET['q']))) : '';
 
 // Se a query NÃO está vazia
 if ($query != '') :
+
+    // Incializa variável da view
+    $search_view .= "<h2>Procurando por '{$query}'</h2>";
+
+    // Altera <title>
+    $page['title'] = "Procurando por '{$query}'";
 
     // Consulta SQL usa prepared statement
     $sql = <<<SQL
@@ -66,12 +72,7 @@ SQL;
         if ($total == 1) $viewtotal = '1 resultato';
         else $viewtotal = "{$total} resultados";
 
-        $search_view .= <<<HTML
-        
-<h2>Procurando por {$query}</h2>
-<p><small class="authordate">{$viewtotal}</small></p>
-
-HTML;
+        $search_view .= "<p><small class=\"authordate\">{$viewtotal}</small></p>";
 
         while ($art = $res->fetch_assoc()) :
 
@@ -91,13 +92,7 @@ HTML;
 
     // Se não achou nada:
     else :
-        $search_view .= <<<HTML
-
-<h2>Procurando por {$query}</h2>
-<p class="center">Nenhum conteúdo encontrado com "{$query}".</p>
-
-HTML;
-
+        $search_view .= "<p class=\"center\">Nenhum conteúdo encontrado com '{$query}'.</p>";
     endif;
 
 else :
@@ -122,7 +117,15 @@ require('_header.php');
     ?>
 </article>
 
-<aside></aside>
+<aside>
+    <?php
+    // Mostra os artigos mais visualizados
+    require('widgets/_mostviewed.php');
+    // Caso a busca retorne mais que 4 itens, exibe artigos mais comentados.
+    if ($total > 4)
+        require('widgets/_mostcommented.php');
+    ?>
+</aside>
 
 <?php
 // Inclui o rodapé do documento

@@ -124,7 +124,7 @@ $sql = <<<SQL
 -- Seleciona
 SELECT
 	-- os campos necessários
-	art_id, art_title, art_summary
+	art_id, art_title, art_summary, art_views
 -- da tabela 'article'    
 FROM `article`
 -- quando
@@ -151,8 +151,8 @@ $afn = explode(' ', $art['emp_name'])[0];
 
 // Atividade 2) Inicializa a view
 $aside_articles = <<<HTML
-    <h4>+ Artigos de {$afn}</h4>
-    <div class="aside_article">
+    <div class="aside_block">
+        <h4>+ Artigos de {$afn}</h4>    
 HTML;
 
 // Loop da view
@@ -170,11 +170,17 @@ while ($aart = $res->fetch_assoc()) :
             $site['summary_length']     // Tamanho do corte
         ) . "...";                      // Concatena reticências no final
 
+    // Contador de visualizações
+    if ($aart['art_views'] == 0) $art_views = "Nenhuma visualização";
+    elseif ($aart['art_views'] == 1) $art_views = "1 visualização";
+    else $art_views = "{$aart['art_views']} visualizações";
+
     $aside_articles .= <<<HTML
 
 <div onclick="location.href = 'view.php?id={$aart['art_id']}'">
     <h5>{$aart['art_title']}</h5>
-    <p><small title="{$aart['art_summary']}">{$art_summary}</small></p>
+    <small title="{$aart['art_summary']}">{$aart['art_summary']}</small>
+    <small class="footer">{$art_views}</small>
 </div>
 
 HTML;

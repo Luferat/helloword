@@ -318,3 +318,90 @@ Telas de 425px ou mais...
         text-align: right;
     }
 }
+
+/* Blocos com artigos na aside */
+/*
+
+<div class="aside_block">
+    <h3>Título</h3>
+    <!-- loop -->
+    <div>
+        <h5>Título do artigo</h5>
+        <small>Resumo do artigo</small>
+        <small class="footer">Footer do artigo</small>
+    </div>
+    <!-- end loop -->
+</div>
+
+*/
+
+.aside_block {}
+
+.aside_block div {
+    background-color: #fff;
+    padding: .5rem;
+    border-radius: .35rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.aside_block div:hover {
+    background-color: #eee;
+}
+
+.aside_block h5 {
+    margin: 0;
+}
+
+.aside_block small {
+    display: block;
+    margin-top: .5rem;
+}
+
+.aside_block small.footer {
+    border-top: 1px dotted grey;
+    padding-top: .25rem;
+    font-size: 70%;
+    text-align: right;
+}
+
+/* Lista de ícones de redes sociais */
+
+.social-side {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+}
+
+.social-side a {
+    border-radius: .35rem;
+}
+
+.social-side a:hover {
+    background-color: #eee;
+}
+
+.social-side i {
+    font-size: 2.5rem;
+}
+
+/*
+Responsividade
+Telas de 768px ou mais... 
+*/
+
+@media only screen and (min-width: 768px) {
+
+    /* Lista de ícones de redes sociais */
+    .social-side {
+        justify-content: space-around;
+        padding-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .social-side i {
+        font-size: 4rem;
+        padding: .25rem;
+    }
+
+}

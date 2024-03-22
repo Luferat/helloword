@@ -8,9 +8,6 @@
  **/ 
 $num_list = isset($num_list) ? intval($num_list) : 3;
 
-// Inicializa view
-$html_view = '';
-
 // Obtém uma lista de artigos mais comentados no site
 // Referências: https://www.w3schools.com/mysql/mysql_groupby.asp
 $sql = <<<SQL
@@ -56,8 +53,8 @@ if ($res->num_rows > 0) :
 
 <div onclick="location.href='view.php?id={$art['cmt_article']}'">
     <h5>{$art['art_title']}</h5>
-    <p><small>{$art['art_summary']}</small></p>
-    <p class="commented"><small>{$tot}</small></p>
+    <small>{$art['art_summary']}</small>
+    <small class="footer">{$tot}</small>
 </div>
 
 HTML;
@@ -68,6 +65,6 @@ endif;
 
 ?>
 
-<div class="viewed">
+<div class="aside_block">
     <?php echo $html_view ?>
 </div>

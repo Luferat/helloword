@@ -42,20 +42,3 @@ article button {
 #btnLogout {
     background-color: orangered;
 }
-
-
-.box {
-    background-color: white;
-    margin-bottom: 1rem;
-    padding: .5rem;
-    border-radius: .35rem;
-    cursor: pointer;
-}
-
-.box:hover {
-    background-color: #eee;
-}
-
-.box h5 {
-    margin: 0 0 .5rem 0;
-}

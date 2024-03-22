@@ -78,49 +78,9 @@
   pointer-events: all;
 }
 
-/* Lista de ícones de redes sociais */
-
-.social-side {
-  display: flex;
-  justify-content: space-around;
-  padding-bottom: 1rem;
-}
-
-.social-side a {
-  border-radius: .35rem;
-}
-
-.social-side a:hover {
-  background-color: #eee;
-}
-
-.social-side i {
-  font-size: 2.5rem;
-}
-
 #btnAnother {
   background-color: steelblue;
   color: white;
   cursor: pointer;
 }
 
-/*
-Responsividade
-Telas de 768px ou mais... 
-*/
-
-@media only screen and (min-width: 768px) {
-
-  /* Lista de ícones de redes sociais */
-  .social-side {
-    justify-content: space-around;
-    padding-bottom: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .social-side i {
-    font-size: 4rem;
-    padding: .25rem;
-  }
-
-}

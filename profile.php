@@ -14,7 +14,7 @@ $page = array(
 $uid = isset($_GET['uid']) ? trim(htmlentities($_GET['uid'])) : '';
 
 // Atividade 4) Inicializa a view dos comentários do usuário na <aside>
-$user_comments = '<h3>Seus comentários</h3>';
+$user_comments = '<div class="aside_block"><h3>Seus comentários</h3>';
 
 if ($uid != '') :
 
@@ -67,6 +67,8 @@ SQL;
 HTML;
 
         endwhile;
+
+        $user_comments .= "</div>";
 
     else :
 
