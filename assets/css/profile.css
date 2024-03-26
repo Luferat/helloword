@@ -1,4 +1,5 @@
 /* Oculta o card do usuário quando a página é carregada */
+
 #userCard {
     display: none;
 }
