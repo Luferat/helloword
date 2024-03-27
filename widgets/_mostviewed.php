@@ -25,7 +25,10 @@ SQL;
 $res = $conn->query($sql);
 
 // Variável acumuladora. Armazena cada um dos artigos.
-$aside_viewed = '<h3>Artigos + vistos</h3>';
+$aside_viewed = '
+    <div class="aside_block">
+        <h3>Artigos + vistos</h3>
+';
 
 // Loop para obter cada registro
 while ($mv = $res->fetch_assoc()) :
@@ -35,20 +38,16 @@ while ($mv = $res->fetch_assoc()) :
     elseif ($mv['art_views'] == 1) $art_views = "1 visualização";
     else $art_views = "{$mv['art_views']} visualizações";
 
-    $aside_viewed .= <<<HTML
-
-<div onclick="location.href = 'view.php?id={$mv['art_id']}'">
-    <h5>{$mv['art_title']}</h5>
-    <small title="{$mv['art_summary']}">{$mv['art_summary']}</small>
-    <small class="footer">{$art_views}</small>
-</div>
-
-HTML;
+    $aside_viewed .= aside_box([
+        'href' => "view.php?id={$mv['art_id']}",
+        'title' => $mv['art_title'],
+        'body' => $mv['art_summary'],
+        'footer' => $art_views
+    ]);
 
 endwhile;
 
+$aside_viewed .= '</div>';
+
 // Envia para a view
-?>
-<div class="aside_block">
-    <?php echo $aside_viewed ?>
-</div>
+echo $aside_viewed;

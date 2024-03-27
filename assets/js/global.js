@@ -103,5 +103,6 @@ function searchCheck() {
         // alert('Oooops! Você não disse o que quer procurar...');
         return false;
     }
+    // Libera envio do formulário
     return true;
 }

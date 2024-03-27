@@ -21,8 +21,8 @@ $page = array(
 $sql = <<<SQL
 
 SELECT
--- Obter os campos id, thumbnail, title, summary
-	art_id, art_date, art_thumbnail, art_title, art_summary
+-- Obter o id
+	art_id
 FROM article
 
 -- Obter somente artigos no passado e presente
@@ -56,21 +56,10 @@ else :
     else $articles = "<h2>{$total} artigos mais recentes</h2>";
 
     // Loop para obter cada artigo
-    while ($art = $res->fetch_assoc()) :
+    while ($art = $res->fetch_assoc())
 
-        $articles .= <<<HTML
-
-<div class="article" onclick="location.href = 'view.php?id={$art['art_id']}'">
-    <img src="{$art['art_thumbnail']}" alt="{$art['art_title']}">
-    <div>
-        <h4>{$art['art_title']}</h4>
-        <p>{$art['art_summary']}</p>
-    </div>
-</div>
-
-HTML;
-
-    endwhile;
+        // Chama a função que gera a lista de artigos
+        $articles .= view_article($art['art_id']);
 
 endif;
 
@@ -83,13 +72,13 @@ require('_header.php');
 </article>
 
 <aside>
-    <?php 
+    <?php
     // Mostra os artigos mais visualizados
     require('widgets/_mostviewed.php');
-    
+
     // Atividade 1) Mostra os artigos mais comentados
     require('widgets/_mostcommented.php');
     ?>
-</aside> 
+</aside>
 
-<?php require('_footer.php') ?>
+<?php require('_footer.php'); ?>

@@ -335,17 +335,18 @@ Telas de 425px ou mais...
 
 */
 
-.aside_block {}
-
 .aside_block div {
     background-color: #fff;
     padding: .5rem;
     border-radius: .35rem;
-    cursor: pointer;
     margin-bottom: 1rem;
 }
 
-.aside_block div:hover {
+.clicked {
+    cursor: pointer;
+}
+
+.clicked:hover {
     background-color: #eee;
 }
 

@@ -142,3 +142,140 @@ function debug($target, $exit = false)
     echo "</pre>";
     if ($exit) exit();
 }
+
+/**
+ * Função que exibe um artigo pelo id na forma de card ou banner
+ * Normalmente usado dentro de loops para exibir o artigo clicável
+ **/
+function view_article($article_id)
+{
+
+    // Obtém a variável $conn
+    global $conn;
+
+    // Obtém o artigo do banco de dados conforme o ID
+    $sql = <<<SQL
+
+        SELECT 
+            art_id, art_thumbnail, art_title, art_summary
+        FROM article
+        WHERE 
+            art_id = '{$article_id}';
+
+    SQL;
+
+    $res = $conn->query($sql);
+    $art = $res->fetch_assoc();
+
+    // Retorna HTML formatado para o chamador da função
+    return <<<HTML
+
+        <div class="article" onclick="location.href = 'view.php?id={$art['art_id']}'">
+        <img src="{$art['art_thumbnail']}" alt="{$art['art_title']}">
+        <div>
+            <h4>{$art['art_title']}</h4>
+            <p>{$art['art_summary']}</p>
+        </div>
+        </div>
+
+    HTML;
+}
+
+/**
+ * Função que exibe caixa de conteúdo na <aside>
+ * parâmetros (todos opcionais):
+ *  [
+ *      'href' => URL string → URL de destino ao clicar na caixa. Default: caixa não clicável
+ *      'title' => string → Título (<h5>) da caixa. Default: sem título
+ *      'body' => string → Conteúdo da caixa. Default: sem conteúdo
+ *      'limit' => integer → Caracteres de corte de 'body'. Ao cortar, adiciona '...' no final. Default: sem corte
+ *      'footer' => string → Conteúdo do rodapé. Default: sem conteúdo
+ *      'echo' => boolean → Exibe a caixa na view. Default: sem exibição
+ *  ]
+ * 
+ * Importante!
+ * A função deve ser "chamada" dentro de um elemento div.aside_block.
+ * Exemplo de uso:
+ * 
+ *  <div class="aside_block">
+ *    <h3>Título da seção</h3>
+ *    <?php
+ *      // Isso pode estar em um loop!
+ *      aside_box([
+ *        'href' => 'view.php?id=1',
+ *        'title' => "Bem-vindo ao Blog",
+ *        'body' => 'Nosso blog é dedicado a explorar o fascinante universo das plantas e árvores, desde ornamentais até variedades frutíferas e medicinais.',
+ *        'footer' => '10 visitas',
+ *        'echo' => true,
+ *        'limit' => 50
+ *      ]);
+ *    ?>
+ *  </div>
+ * 
+ * As folhas de estilo de div.aside_block e div.clickable estão em 'assets/css/globa.css'.
+ **/
+function aside_box($data = [])
+{
+
+    // Se o array de parâmetros está vazio, retorna vazio
+    if (empty($data))
+        return '';
+
+    // Inicializa variáveis
+    $clicked = $title = $body = $body_content = $footer = '';
+
+    // Testa se enviou um link na chave 'href'
+    if (isset($data['href']))
+        $clicked = 'class="clicked" onclick="location.href = \'' . $data['href'] . '\'"';
+
+    // Testa se envoiu um título na chave 'title'
+    if (isset($data['title']))
+        $title = "<h5>{$data['title']}</h5>";
+
+    // Testa se enviou um conteúdo na chave 'body'
+    if (isset($data['body'])) {
+
+        // Testa se solicitou o corte do conteúdo
+        if (isset($data['limit']))
+            // Excuta o corte
+            $body_content = cutString($data['body'], $data['limit']);
+        else
+            $body_content = $data['body'];
+
+        $body = '<small title="' . $data['body'] . '">' . $body_content . '</small>';
+    }
+
+    // Testa se solicitou um footer na chave 'footer'
+    if (isset($data['footer']))
+        $footer = '<small class="footer">' . $data['footer'] . '</small>';
+
+    $out = <<<HTML
+
+        <div {$clicked}>
+            {$title}
+            {$body}
+            {$footer}
+        </div>
+
+    HTML;
+
+    // Se solicitou o echo na saída (navegador)
+    if (isset($data['echo']))
+        echo $out;
+
+    // Retorna o resultado da função para o chamador
+    return $out;
+}
+
+/**
+ * Função que corta uma string
+ * Caso a string tenha mais de XX caracteres, ela será cortada e terá "..." no final do corte
+ **/
+function cutString($string, $limit = 50, $sufix = "...")
+{
+    if (strlen($string) > $limit) {
+        // Corta a string no limite especificado
+        $string = substr($string, 0, $limit - strlen($sufix)) . $sufix;
+    }
+    return $string;
+}

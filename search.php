@@ -30,22 +30,22 @@ if ($query != '') :
     // Consulta SQL usa prepared statement
     $sql = <<<SQL
 
--- Referências: https://www.w3schools.com/mysql/mysql_like.asp
+    -- Referências: https://www.w3schools.com/mysql/mysql_like.asp
 
-SELECT 
-	art_id, art_thumbnail, art_title, art_summary 
-FROM article 
-WHERE
-	-- Requisitos padrão
-    art_date <= NOW()
-    AND art_status = 'on'
-    -- Busca
-    AND art_title LIKE ?
-    OR art_summary LIKE ?
-    OR art_content LIKE ?
-ORDER BY art_date DESC;
+        SELECT 
+            art_id 
+        FROM article 
+        WHERE
+            -- Requisitos padrão
+            art_date <= NOW()
+            AND art_status = 'on'
+            -- Busca
+            AND art_title LIKE ?
+            OR art_summary LIKE ?
+            OR art_content LIKE ?
+        ORDER BY art_date DESC;
 
-SQL;
+    SQL;
 
     // Prepara a query de busca
     $search_query = "%{$query}%";
@@ -59,6 +59,7 @@ SQL;
         $search_query
     );
     $stmt->execute();
+
     // Obtém o resultado da consulta
     $res = $stmt->get_result();
 
@@ -74,21 +75,9 @@ SQL;
 
         $search_view .= "<p><small class=\"authordate\">{$viewtotal}</small></p>";
 
-        while ($art = $res->fetch_assoc()) :
-
-            $search_view .= <<<HTML
-
-<div class="article" onclick="location.href = 'view.php?id={$art['art_id']}'">
-    <img src="{$art['art_thumbnail']}" alt="{$art['art_title']}">
-    <div>
-        <h4>{$art['art_title']}</h4>
-        <p>{$art['art_summary']}</p>
-    </div>
-</div>
-
-HTML;
-
-        endwhile;
+        // Loop para obter e exibir os artigos
+        while ($art = $res->fetch_assoc())
+            $search_view .= view_article($art['art_id']);
 
     // Se não achou nada:
     else :
